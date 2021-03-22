@@ -12,6 +12,12 @@
 </template>
 
 <style>
+
+ body{
+      background-image: url("./assets/Backround.jpeg");
+ }
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

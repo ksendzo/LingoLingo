@@ -1,12 +1,14 @@
 <template>
     <div class = "row" id="traka">
-        <div class = "col-6" id="naslov" >
+
+        <div class = "offset-1 col-1" id="naslov" >
             <router-link to="/">LingoLingo</router-link>
         </div>
-        <div class="col-6 sredina" id = "nav">
+        <div class="offset-8 col-1 sredina" id = "nav">
             <router-link to="/">PlayerIndex</router-link> |
             <router-link to="/about">About</router-link>
         </div>
+        
     </div>
 </template>
 

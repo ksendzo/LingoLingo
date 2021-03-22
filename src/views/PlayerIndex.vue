@@ -1,17 +1,24 @@
 <template>
-    <div class = "comp">
-        <div class="row">
-            <div class= "col-6">
-                Something
+ 
+    <div class = "">
+
+        <div class = 'row'>
+            <div class = "col-4">
+            <GameModeCard/>
             </div>
-            <div class="col-6 dugme">
-                <button class="btn btn-success">
-                    klikni me
-                </button>
+
+            <div class = "col-4">
+            <GameModeCard/>
+            </div>
+
+
+            <div class = "col-4">
+            <GameModeCard/>
             </div>
         </div>
-        Player Index Page
     </div>
+
+
 </template>
 
 <style>
@@ -24,9 +31,9 @@
     height: 50px;
 }
 .comp {
-    
+    background: #d4d4d493;
     border-radius: 25px;
-    border: 2px solid lightgray;
+    border: 2px solid #42b983;
 
 }
 
@@ -37,8 +44,14 @@
 
 
 <script>
+
+
+import GameModeCard from '../components/GameModeCard'
 export default {
-    name:'PlayerIndex'
+    name:'PlayerIndex',
+    components:{
+    GameModeCard
+    }
 }
 </script>
 
