@@ -24,9 +24,9 @@
     height: 50px;
 }
 .comp {
-    background: #d4d4d493;
+    
     border-radius: 25px;
-    border: 2px solid #42b983;
+    border: 2px solid lightgray;
 
 }
 
