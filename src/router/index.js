@@ -5,7 +5,7 @@ import About from '../views/About'
 import NoPlayerPage from '../views/NoPlayerPage.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
-
+// komentar
 
 Vue.use(VueRouter)
 
