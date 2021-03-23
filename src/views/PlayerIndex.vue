@@ -16,6 +16,13 @@
             <GameModeCard/>
             </div>
         </div>
+
+        <div class="row">
+            <div class="offset-1 col-10">
+                <QuestionsFrame/>
+            </div>
+        </div>
+
     </div>
 
 
@@ -47,10 +54,12 @@
 
 
 import GameModeCard from '../components/GameModeCard'
+import QuestionsFrame from '../components/QuestionsFrame'
 export default {
     name:'PlayerIndex',
     components:{
-    GameModeCard
+    GameModeCard,
+    QuestionsFrame
     }
 }
 </script>
