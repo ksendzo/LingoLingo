@@ -11,8 +11,8 @@
 
 
 <script>
-import MainPlayerContent from '../components/MainPlayerContent'
-import SecondaryPlayerContent from '../components/SecondaryPlayerContent'
+import MainPlayerContent from '../components/player/MainPlayerContent'
+import SecondaryPlayerContent from '../components/player/SecondaryPlayerContent'
 
 export default {
     name:'PlayerIndex',

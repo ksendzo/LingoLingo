@@ -12,7 +12,7 @@
 <script>
 
 
-import GameModeCard from '../components/player/GameModeCard'
+import GameModeCard from './GameModeCard'
 export default {
     name:'GameModeList',
     components:{

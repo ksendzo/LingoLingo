@@ -3,3 +3,9 @@
         Tabela stvari
     </div>
 </template>
+
+<script>
+export default {
+    name: "SecondaryPlayerContent"
+}
+</script>

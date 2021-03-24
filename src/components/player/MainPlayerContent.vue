@@ -16,9 +16,9 @@
 
 
 <script>
-import GameModeList from '../components/player/GameModeList'
-import QuestionsFrame from '../components/player/QuestionsFrame'
-import ListOfUsers from '../components/player/ListOfUsers'
+import GameModeList from './GameModeList'
+import QuestionsFrame from './QuestionsFrame'
+import ListOfUsers from './ListOfUsers'
 export default {
     name:'MainPlayerContent',
     components:{
