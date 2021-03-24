@@ -1,65 +1,24 @@
 <template>
- 
-    <div class = "">
-
-        <div class = 'row'>
-            <div class = "col-4">
-            <GameModeCard/>
-            </div>
-
-            <div class = "col-4">
-            <GameModeCard/>
-            </div>
-
-
-            <div class = "col-4">
-            <GameModeCard/>
-            </div>
+    <div class = "row"> 
+        <div class = "col-8">
+            <MainPlayerContent/>
         </div>
-
-        <div class="row">
-            <div class="offset-1 col-10">
-                <QuestionsFrame/>
-            </div>
+        <div class = "offset-1 col-3">
+            <SecondaryPlayerContent/>
         </div>
-
     </div>
-
-
 </template>
-
-<style>
-.dugme {
-    padding: 20px;
-    vertical-align: middle im !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-}
-.comp {
-    background: #d4d4d493;
-    border-radius: 25px;
-    border: 2px solid #42b983;
-
-}
-
-.btn {
-    background-color: #42b983;
-}
-</style>
 
 
 <script>
+import MainPlayerContent from '../components/MainPlayerContent'
+import SecondaryPlayerContent from '../components/SecondaryPlayerContent'
 
-
-import GameModeCard from '../components/GameModeCard'
-import QuestionsFrame from '../components/QuestionsFrame'
 export default {
     name:'PlayerIndex',
     components:{
-    GameModeCard,
-    QuestionsFrame
+        MainPlayerContent, 
+        SecondaryPlayerContent
     }
 }
 </script>
