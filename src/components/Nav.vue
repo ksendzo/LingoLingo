@@ -5,7 +5,7 @@
             <router-link to="/">LingoLingo</router-link>
         </div>
         <div class="offset-8 col-1 sredina" id = "nav">
-            <router-link to="/">PlayerIndex</router-link> |
+            <router-link to="/">Login</router-link> |
             <router-link to="/about">About</router-link>
         </div>
         

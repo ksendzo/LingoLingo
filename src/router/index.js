@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import PlayerIndex from '../views/PlayerIndex.vue'
 import About from '../views/About'
+import VueRouter from 'vue-router'
+import AdminPage from '../views/AdminPage.vue'
+import PlayerIndex from '../views/PlayerIndex.vue'
 import NoPlayerPage from '../views/NoPlayerPage.vue'
-//import Professor from '../views/ProfessorPage.vue'
-//import Admin from '../views/AdminPage'
+import ProfessorPage from '../views/ProfessorPage.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
 
@@ -22,11 +22,6 @@ const routes = [
     component: About
   },
   {
-    path: '/',
-    name: 'Login',
-    component: NoPlayerPage
-  },
-  /*{
     path: '/professor',
     name:'Professor',
     component: ProfessorPage
@@ -35,7 +30,12 @@ const routes = [
     path: '/admin',
     name:'Admin',
     component: AdminPage
-  }*/
+  },
+  {
+    path: '/',
+    name: 'Login',
+    component: NoPlayerPage
+  },
 
 ]
 
