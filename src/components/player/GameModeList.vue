@@ -23,18 +23,19 @@ export default {
             modes: [
                 {
                     name: "Basic", 
-                    text: "This is the Basic mode for playing the game.", 
-                    picture: "lightbulb.png"
+                    text: "This is the Basic mode for playing the game.",
+                    picture: "Basic.png"
+                    
                 },
                 {
                     name: "Survival", 
                     text: "Here you can test your limits!", 
-                    picture: "lightbulb.png"
+                    picture: "Survival.png"
                 },
                 {
                     name: "Learning", 
                     text: "Keep it calm and learn for fun!", 
-                    picture: "lightbulb.png"
+                    picture: "Learning.png"
                 }
             ]
         }

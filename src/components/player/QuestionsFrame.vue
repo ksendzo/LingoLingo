@@ -18,9 +18,17 @@
         <button class="btn btn-warning">Report</button>
       </div>
       <div class="offset-6 col-2">
-        <button class="btn btn-success">Submit</button>
+        <button class="btn btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">Submit</button>
       </div>
     </div>
+
+  <!--ovo prikazuje tacan odgovor nakon pritiska na submit dugme-->
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+   </div>
+  <!---->
 
   </div>
 </template>

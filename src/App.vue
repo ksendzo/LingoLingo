@@ -14,7 +14,12 @@
 <style>
 
  body{
-      background-image: url("./assets/Backround.jpeg");
+      background-image: url("./assets/Background.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: auto;
+    
+      overflow-x: hidden;
  }
 
 

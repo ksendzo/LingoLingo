@@ -8,9 +8,7 @@
                 <QuestionsFrame/>
             </div>
         </div>
-
-        <ListOfUsers/>        
-
+<!--<ListOfUsers/>-->
     </div>
 </template>
 
@@ -18,13 +16,13 @@
 <script>
 import GameModeList from './GameModeList'
 import QuestionsFrame from './QuestionsFrame'
-import ListOfUsers from './ListOfUsers'
+//import ListOfUsers from './ListOfUsers'
 export default {
     name:'MainPlayerContent',
     components:{
         GameModeList,
         QuestionsFrame,
-        ListOfUsers
+        //ListOfUsers
     }
 }
 </script>

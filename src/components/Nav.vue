@@ -21,14 +21,14 @@
 }
 
 #traka {
-    padding: 20px;
-    background: lightgray;
+    padding: 10px;
+    margin-top:10px;
+    background: linear-gradient(to right, transparent, white);
     color: #42b983;
 }
 
 #nav {
   padding: 20px;
-  background: lightgray;
   vertical-align: middle im !important;
   display: flex;
   justify-content: center;

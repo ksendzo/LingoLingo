@@ -4,13 +4,13 @@
 
     <div class = 'row'>
         <div class = 'offset-1 col-2'>
-            <button type="button" class="btn btn-primary">Player</button>
+            <router-link to="/player"><button type="button" class="btn btn-primary">Player</button></router-link>
         </div>
         <div class = "offset-1 col-2">
-            <button type="button" class="btn btn-primary">Professor</button>
+            <router-link to="/professor"><button type="button" class="btn btn-primary">Professor</button></router-link>
         </div>
         <div class = "offset-1 col-2">
-            <button type="button" class="btn btn-primary">Admin</button>
+            <router-link to="/admin"><button type="button" class="btn btn-primary">Admin</button></router-link>
         </div>
     </div>
 
@@ -18,9 +18,8 @@
 </template>
 
 <script>
+//import { component } from 'vue/types/umd'
 export default {
-
-  name:'Login'
-
+  name:'Login',
 }
 </script>
