@@ -6,6 +6,7 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  data: {color: '#550055'}
 }).$mount('#app')
 

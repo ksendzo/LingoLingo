@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">
+                    <button type="button" class="btn btn-link noHover" data-toggle="collapse" data-target="#collapseOne">
                     
                     Spanish
                     <img src="../../../public/img/Spanish.png" width="60px" height="40px">
@@ -24,7 +24,7 @@
         <div class="card">
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
-                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo">
+                    <button type="button" class="btn btn-link collapsed noHover" data-toggle="collapse" data-target="#collapseTwo">
                         German
                        <img src="../../../public/img/German.png" width="60px" height="40px"> 
                         </button>

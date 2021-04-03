@@ -18,7 +18,14 @@
         <button class="btn btn-warning">Report</button>
       </div>
       <div class="offset-6 col-2">
-        <button class="btn btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">Submit</button>
+        <button v-if="this.isActive" class="btn btn-success toggle" @click="toggle" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">
+          Submit
+        </button>
+        <router-link to='/player' v-else>
+        <button class="btn btn-success">
+          Next
+        </button>
+        </router-link>
       </div>
     </div>
 
@@ -52,6 +59,18 @@
 
 <script>
 export default {
-  name:'QuestionFrame'
+  name:'QuestionFrame',
+  data() {
+    return {
+      isActive: true
+    };
+  },
+  methods: {
+    toggle() {
+      this.isActive = this.isActive ? false : true;
+    }
+  }
 }
+
+
 </script>

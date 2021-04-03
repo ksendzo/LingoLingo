@@ -1,5 +1,5 @@
-<template>
-  <div id="app">
+<template class="bg-dark">
+  <div id="app" >
     <Nav />
     <p>&nbsp;</p> 
     <p>&nbsp;</p> 
@@ -13,14 +13,12 @@
 
 <style>
 
- body{
-      background-image: url("./assets/Background.jpg");
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: auto;
-    
-      overflow-x: hidden;
- }
+body {
+  background: linear-gradient(to right, transparent, white);
+  background-image: url('./assets/traka.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 
 
 #app {

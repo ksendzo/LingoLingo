@@ -5,6 +5,9 @@ import AdminPage from '../views/AdminPage.vue'
 import PlayerIndex from '../views/PlayerIndex.vue'
 import NoPlayerPage from '../views/NoPlayerPage.vue'
 import ProfessorPage from '../views/ProfessorPage.vue'
+import QuestionPage from '../views/QuestionPage.vue'
+
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
 
@@ -36,6 +39,11 @@ const routes = [
     name: 'Login',
     component: NoPlayerPage
   },
+  {
+    path: '/question',
+    name: 'Question', 
+    component: QuestionPage
+  }
 
 ]
 

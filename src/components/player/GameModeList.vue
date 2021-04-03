@@ -2,11 +2,26 @@
     <div>
         <div class = 'row'>
             <div v-for='mode in modes' :key="mode.name" class = "col-4" style = "width:100%">
-            <GameModeCard :mode='mode'/>
+                <router-link to='/question' class="noHover">
+                    <GameModeCard :mode='mode'/>
+                </router-link>
             </div>
         </div>
     </div>
 </template>
+
+
+<style>
+.noHover {
+    color: black;
+}
+
+.noHover:hover {
+    color: black;
+    text-decoration: none;
+}
+
+</style>
 
 
 <script>

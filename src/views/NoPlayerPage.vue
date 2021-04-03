@@ -3,14 +3,14 @@
     <h1>Wellcome to login page!</h1>
 
     <div class = 'row'>
-        <div class = 'offset-1 col-2'>
-            <router-link to="/player"><button type="button" class="btn btn-primary">Player</button></router-link>
+        <div class = 'offset-2 col-2'>
+            <router-link to="/player"><div class="card bg-dark text-white">Player</div></router-link>
         </div>
         <div class = "offset-1 col-2">
-            <router-link to="/professor"><button type="button" class="btn btn-primary">Professor</button></router-link>
+            <router-link to="/professor"><div class="card bg-dark text-white">Professor</div></router-link>
         </div>
         <div class = "offset-1 col-2">
-            <router-link to="/admin"><button type="button" class="btn btn-primary">Admin</button></router-link>
+            <router-link to="/admin"><div class="card bg-dark text-white">Admin</div></router-link>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
     <div class = "row" id="traka">
 
         <div class = "offset-1 col-1" id="naslov" >
-            <router-link to="/">LingoLingo</router-link>
+            <router-link to="/"> <img src="@/assets/logo3.png"/> </router-link>
         </div>
         <div class="offset-8 col-1 sredina" id = "nav">
             <router-link to="/">Login</router-link> |
@@ -18,6 +18,10 @@
     text-decoration: none;
     font-size: 200%;
     color: #42b983;
+}
+
+#naslov img {
+    height: 100px;
 }
 
 #traka {
