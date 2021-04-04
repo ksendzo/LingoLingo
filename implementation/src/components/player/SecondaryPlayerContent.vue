@@ -1,42 +1,33 @@
 <template>
 
     <div class="card" style="padding: 0">
-
         <div class="bs-example">
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button type="button" class="btn btn-link noHover" data-toggle="collapse" data-target="#collapseOne">
-                    
-                    Spanish
-                    <img src="../../../public/img/Spanish.png" width="60px" height="40px">
-                    </button>									
-                </h2>
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                    <!--Ovde ide lista igraca-->
-                    <ListOfUsers/>
+            <div class="accordion" id="accordionExample">
+
+                <div class="card" role="button">
+                    <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
+                        Spanish
+                        <img src="../../../public/img/Spanish.png" width="60px" height="40px">
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!--Ovde ide lista igraca-->
+                            <ListOfUsers/>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                    <button type="button" class="btn btn-link collapsed noHover" data-toggle="collapse" data-target="#collapseTwo">
+                <div class="card" role="button">
+                    <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo">
                         German
-                       <img src="../../../public/img/German.png" width="60px" height="40px"> 
-                        </button>
-                </h2>
-            </div>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                     <!--Ovde ide lista igraca-->
-                     <ListOfUsers/>
+                        <img src="../../../public/img/German.png" width="60px" height="40px"> 
+                    </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <!--Ovde ide lista igraca-->
+                        <ListOfUsers/>
+                    </div>
                 </div>
             </div>
-        </div>
         
         <!-- Ovaj deo je za jos jednog igraca, ali treba automatizovati proces!
 
@@ -55,16 +46,11 @@
         
         
         -->
+        </div>
     </div>
-</div>
-    
-    </div>    
+</div>    
     
 </template>
-
-
-
-
 
 
 <script>

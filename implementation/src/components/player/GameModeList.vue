@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class = 'row'>
+        <div class = 'row' >
             <div v-for='mode in modes' :key="mode.name" class = "col-4" style = "width:100%">
                 <router-link to='/question' class="noHover">
                     <GameModeCard :mode='mode'/>

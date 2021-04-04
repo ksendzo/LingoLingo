@@ -1,6 +1,6 @@
 <template>
 
-<div class = "card text-center bg-light" id="fade" v-on:click="click">
+<div class = "card text-center bg-light " id="fade" v-on:click="click">
   <img class="card-img-top" :src="'/img/'+mode.picture"/>
   <div class="card-body">  
     <h5 class="card-title">{{mode.name}}</h5>
