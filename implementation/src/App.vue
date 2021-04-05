@@ -1,8 +1,6 @@
 <template class="bg-dark">
   <div id="app" >
-    <Nav />
-    <p>&nbsp;</p> 
-    <p>&nbsp;</p> 
+   
     <div class = "row">
       <div class = "col-10 offset-1">
         <router-view/>
@@ -11,13 +9,17 @@
   </div>
 </template>
 
-<style>
+<style >
 
 body {
   background: linear-gradient(to right, transparent, white);
   background-image: url('./assets/traka.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
+  overflow-x: hidden;
+
+  font-family: Garamond, serif;
+
 }
 
 
@@ -30,11 +32,10 @@ body {
 }
 </style>
 <script>
-import Nav from './components/Nav'
 
 export default {
   name: 'App',
-  components: { Nav}
+  components: { }
 }
 
 </script>

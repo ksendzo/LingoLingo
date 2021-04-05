@@ -1,0 +1,12 @@
+body {
+    background: linear-gradient(to right, transparent, white);
+    background-image: url('../traka.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: blueviolet;
+
+    overflow-x: hidden;
+
+
+
+}

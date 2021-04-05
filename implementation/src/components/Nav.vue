@@ -1,26 +1,36 @@
 <template>
-    <div class = "row" id="traka">
+<div>
+    <div class = "row" id="">
 
-        <div class = "offset-1 col-1" id="naslov" >
+        <div class = "offset-1 col-1 naslov" id="" >
             <router-link to="/"> <img src="@/assets/logo3.png"/> </router-link>
         </div>
-        <div class="offset-8 col-1 sredina" id = "nav">
-            <router-link to="/">Login</router-link> |
-            <router-link to="/about">About</router-link>
+        <div class="offset-1 col-9">  
+        <div class="row">    
+            <div class="offset-1 col-2 navTab">
+                <router-link to='/login'> LOGIN </router-link>
+            </div>
+            <div class="col-3 navTab">
+                <router-link to='/register'>  REGISTER </router-link>
+            </div>
         </div>
+    </div>
+
         
     </div>
+    <br/>
+</div>
 </template>
 
 <style>
-#naslov a{
+.naslov a{
     font-weight:bolder;
     text-decoration: none;
     font-size: 200%;
     color: #42b983;
 }
 
-#naslov img {
+.naslov img {
     height: 100px;
 }
 
@@ -32,7 +42,7 @@
 }
 
 #nav {
-  padding: 20px;
+  padding: 50px;
   vertical-align: middle im !important;
   display: flex;
   justify-content: center;
@@ -52,7 +62,11 @@
 </style>
 
 <script>
+
 export default {
-    name: 'Nav'
+    name: 'Nav', 
+    components: {
+        
+    }
 }
 </script>

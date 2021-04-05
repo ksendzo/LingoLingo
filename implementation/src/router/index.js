@@ -6,6 +6,7 @@ import PlayerIndex from '../views/PlayerIndex.vue'
 import NoPlayerPage from '../views/NoPlayerPage.vue'
 import ProfessorPage from '../views/ProfessorPage.vue'
 import QuestionPage from '../views/QuestionPage.vue'
+import RangList from '../components/player/RangList.vue'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -43,7 +44,13 @@ const routes = [
     path: '/question',
     name: 'Question', 
     component: QuestionPage
+  },
+  {
+    path: '/player/rangList',
+    name: 'RangList',
+    component: RangList
   }
+
 
 ]
 

@@ -1,5 +1,6 @@
 <template>
   <div class="admin">
+    <NavAdmin/>
     <h1 style="color:black">Hello Admin! Welcome back!</h1>
 
 <div>
@@ -18,13 +19,13 @@
 
 <script>
 import ListOfUsers from '../components/player/ListOfUsers';
-
+import NavAdmin from '@/components/admin/NavAdmin'
 
 export default {
 
   name:'AdminPage',
   components:{
-    ListOfUsers
+    ListOfUsers, NavAdmin
 
   }
 }

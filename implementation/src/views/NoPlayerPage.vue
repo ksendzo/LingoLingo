@@ -1,6 +1,8 @@
 <template>
   <div class="login">
-    <h1>Wellcome to login page!</h1>
+    <Nav/>
+    <h1>Choose the user type to see the prototype</h1>
+    <br/>
 
     <div class = 'row'>
         <div class = 'offset-2 col-2'>
@@ -18,8 +20,12 @@
 </template>
 
 <script>
-//import { component } from 'vue/types/umd'
+import Nav from '@/components/Nav'
+
 export default {
   name:'Login',
+  components: {
+    Nav
+  }
 }
 </script>

@@ -1,42 +1,41 @@
 <template>
+
   <div class="professor">
+<NavProfessor/>
+    <p>&nbsp;</p> 
+    <p>&nbsp;</p> 
+
     <h1 style="color:black">Wellcome back professor!</h1>
-
-  <div class="card text-center" style="padding: 0; margin-bottom:50px">
-    
-    <div class="row CirkovoStilizovanje">
-      <div class="offset-2 col-8 text-black card border-0">
-        Dodajte novo pitanje:
+    <div class="card text-center" style="padding: 0; margin-bottom:50px">
+      
+      <div class="row CirkovoStilizovanje">
+        <div class="offset-2 col-8 text-black card border-0">
+          Dodajte novo pitanje:
+        </div>
       </div>
+      <div class="row CirkovoStilizovanje">
+        <div class="offset-2 col-8  flex-container">
+          <input class="fill-width" type="text" />
+        </div>
+      </div>
+      <div class="row CirkovoStilizovanje">
+        <div class="offset-2 col-8  flex-container">
+          <input class="fill-width" type="text" />
+        </div>
+      </div>
+      <div class="row CirkovoStilizovanje">
+        <div class="offset-5 col-2">
+          <button class="btn btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">Submit</button>
+        </div>
+      </div>
+    <!--resetovati gorepomenuta polja u slucaju dodavanja novog pitanja-->
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+        Pitanje zabelezeno!
+        </div>
+      </div>
+    <!---->
     </div>
-
-    <div class="row CirkovoStilizovanje">
-      <div class="offset-2 col-8  flex-container">
-        <input class="fill-width" type="text" />
-      </div>
-    </div>
-
-    <div class="row CirkovoStilizovanje">
-      <div class="offset-2 col-8  flex-container">
-        <input class="fill-width" type="text" />
-      </div>
-    </div>
-
-    <div class="row CirkovoStilizovanje">
-      <div class="offset-5 col-2">
-        <button class="btn btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">Submit</button>
-      </div>
-    </div>
-
-  <!--resetovati gorepomenuta polja u slucaju dodavanja novog pitanja-->
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-      Pitanje zabelezeno!
-      </div>
-   </div>
-  <!---->
-
-  </div>
 
   <div class="card" style="padding: 0">
 
@@ -105,12 +104,13 @@
 
 <script>
 import ListOfUsers from '../components/player/ListOfUsers';
+import NavProfessor from '@/components/professor/NavProfessor'
 
 export default {
 
   name:'ProfesorPage',
   components:{
-    ListOfUsers
+    ListOfUsers, NavProfessor
 
   }
 }
