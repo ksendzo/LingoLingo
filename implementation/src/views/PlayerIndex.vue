@@ -1,13 +1,14 @@
 <template>
 <div>
     <NavPlayer/>
-    
-
     <div class = "row"> 
-        <div class = "col-8">
+        <div class="col-1">
+            <ChooseLanguage/>
+        </div>
+        <div class = "offset-1 col-7">
             <MainPlayerContent/>
         </div>
-        <div class = "offset-1 col-3">
+        <div class = "offset-1 col-2">
             <SecondaryPlayerContent/>
         </div>
     </div>
@@ -19,13 +20,15 @@
 import MainPlayerContent from '../components/player/MainPlayerContent'
 import SecondaryPlayerContent from '../components/player/SecondaryPlayerContent'
 import NavPlayer from '@/components/player/NavPlayer'
+import ChooseLanguage from '@/components/ChooseLanguage.vue'
 
 export default {
     name:'PlayerIndex',
     components:{
         MainPlayerContent, 
         SecondaryPlayerContent, 
-        NavPlayer
+        NavPlayer, 
+        ChooseLanguage
     }
 }
 </script>
