@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="card bg-success" style="padding:20px">
         <div class = 'row' >
             <div v-for='mode in modes' :key="mode.name" class = "col-4" style = "width:100%">
                 <router-link to='/question' class="noHover">

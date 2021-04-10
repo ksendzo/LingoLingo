@@ -2,10 +2,10 @@
 <div>
     <NavPlayer/>
     <div class = "row"> 
-        <div class="col-1">
+        <div class="col-2">
             <ChooseLanguage/>
         </div>
-        <div class = "offset-1 col-7">
+        <div class = " col-7">
             <MainPlayerContent/>
         </div>
         <div class = "offset-1 col-2">

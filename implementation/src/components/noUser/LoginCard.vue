@@ -1,0 +1,19 @@
+<template>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-login">
+                    <form onsubmit="event.preventDefault()" class="box">
+                        <h1>Login</h1>
+                        <p class="text-muted"> Please enter your login and password!</p>
+                        <input type="text" name="" placeholder="Username"> 
+                        <input type="password" name="" placeholder="Password"> 
+                        <a class="forgot text-muted" href="#">Forgot password?</a> 
+                        <input type="submit" name="" value="Login" href="#">                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

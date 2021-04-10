@@ -10,7 +10,7 @@
                 <router-link to='/professor'> MY PAGE </router-link>
             </div>
             <div class="col-3 navTab">
-                <router-link to='/professor/rangList'>  QUESTION LIST </router-link>
+                <router-link to='/professor/QuestionList'>  QUESTION LIST </router-link>
             </div>
         </div>
     </div>

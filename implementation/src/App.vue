@@ -17,10 +17,14 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
 
   font-family: Garamond, serif;
 
 }
+
+
+
 
 
 #app {

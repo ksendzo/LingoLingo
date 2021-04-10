@@ -7,10 +7,10 @@
     <div class="offset-1 col-9">  
         <div class="row">    
             <div class="offset-1 col-2 navTab">
-                <router-link to='/admin'> MY PAGE </router-link>
+                <router-link to='/admin'> REQUESTS </router-link>
             </div>
             <div class="col-3 navTab">
-                <router-link to='/admin/reportos'>  REPORT LIST </router-link>
+                <router-link to='/admin/reportList'>  REPORT LIST </router-link>
             </div>
         </div>
     </div>

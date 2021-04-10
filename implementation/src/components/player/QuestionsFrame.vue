@@ -19,7 +19,7 @@
       </div>
       <div class="offset-6 col-2">
         <button v-if="this.isActive" class="btn btn-success toggle" @click="toggle" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">
-          Submit
+          Check
         </button>
         <router-link to='/player' v-else>
         <button class="btn btn-success">
