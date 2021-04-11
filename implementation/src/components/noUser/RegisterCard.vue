@@ -1,9 +1,8 @@
 <template>
-    <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="offset-1 col-11">
                 <div class="card-login">
-                    <form onsubmit="event.preventDefault()" class="box">
+                    <form onsubmit="event.preventDefault()" class="box box-width">
                         <h1>Register</h1>
                         <p class="text-muted"> Please enter your personal info!</p> 
                         <input type="text" name="" placeholder="First Name"> 
@@ -23,7 +22,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>

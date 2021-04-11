@@ -1,29 +1,36 @@
 <template>
-  <div class="container">
-    <table class="table mt-5 table-dark">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Language</th>
-          <th scope="col">Question</th>
-          <th scope="col">Answer</th>
-          <th scope="col">Options</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(entry, i) in users" :key="i">
-          <th scope="row">{{ ++i }}</th>
-          <td><img class="languageIcon" :src="'/img/'+entry.language+'.png'"/> &emsp;  {{entry.language}}</td>
-          <td>{{ entry.question }}</td>
-          <td>{{ entry.answer }}</td>
-          <td> 
-            <img class="languageIcon" src="@/assets/pen.png"/>
-            <img class="languageIcon" src="@/assets/delete.png"/>
-            <img class="languageIcon" :src="'/img/'+entry.flag+'.png'"/> 
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class=" offset-1 col-md-11">
+      <div class="centerContent">
+        <table class="box table text-white table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Language</th>
+              <th scope="col">Question</th>
+              <th scope="col" colspan="3">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(entry, i) in users" :key="i">
+              <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/'+entry.language+'.png'"/> &emsp;  {{entry.language}}</td>
+              <td style="horizontal-align:middle; margin:0px;">
+                <div class="row">
+                  <div class="col-12 underline">
+                {{ entry.question }}
+                  </div></div>
+                  <div class="row">
+                  <div class="col-12">
+                  {{ entry.answer }}
+                  </div></div>
+              </td>
+              <td style="vertical-align: middle;"><img class="languageIcon" src="@/assets/pen.png"/></td>
+              <td style="vertical-align: middle;"><img class="languageIcon" src="@/assets/delete.png"/></td>
+              <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/'+entry.flag+'.png'"/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,6 +40,13 @@
     widows: 20px;
     margin: 5px;
 }
+
+.underline{
+  border-bottom: 1px solid #2ecc71;
+  margin: 0px;
+  text-align: center;
+}
+
 </style>
 
 <script>
@@ -49,9 +63,15 @@ export default {
             },
             {
                 language: "German", 
-                question: "This is a questioa ef w fsgfsg hdfgddd   dfg gd gdgdfaf  ksjakdgf hagodhk atyj sdidoks gh  ouikda6 a a7dkyid t7ta n.", 
-                answer: "Das ist ein sdjsfj sfj sudshfsufhsdfh e u h ahuhsdsudhf suu sufjsuss  jkjhjzjcs shysbra d rgrh cgdhdthdgdtgdt  dgdg xdftsre Frage.",
+                question: "I don't like styling web pages.", 
+                answer: "Ich mag es nicht, Webseiten zu stylen.",
                 flag: false
+            },
+            {
+              language: "German",
+              question: "But I can sure make it work!", 
+              answer: "Aber ich kann es sicher schaffen!",
+              flag: false
             },
             {
                 language: "Spanish", 

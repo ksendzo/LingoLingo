@@ -1,7 +1,7 @@
 <template>
-    <div class="card bg-success" style="padding:20px">
-        <div class = 'row' >
-            <div v-for='mode in modes' :key="mode.name" class = "col-4" style = "width:100%">
+    <div class="" style="padding:20px">
+        <div class = 'row tablicaModova' >
+            <div v-for='mode in modes' :key="mode.name" class = "col-4 tablicaModova" style = "width:100%">
                 <router-link to='/question' class="noHover">
                     <GameModeCard :mode='mode'/>
                 </router-link>
@@ -12,13 +12,26 @@
 
 
 <style>
+.okvirKartica {
+    border-radius:10px;
+    width: 100%;
+    height: 400px;
+    padding: 40px;
+    padding-bottom: 10px;
+    background-color: #8a8a8a33;
+    text-align: center;
+    transition: 0.25s;
+    color: white;
+}
+
 .noHover {
-    color: black;
+    color: white;
 }
 
 .noHover:hover {
-    color: black;
+    color: white;
     text-decoration: none;
+    background-color: #1cb5db;
 }
 
 </style>

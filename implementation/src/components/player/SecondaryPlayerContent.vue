@@ -1,7 +1,14 @@
 <template>
+<div>
+<div class="row">
+    <div class="col-12">
+        <router-link to="/player/rangList">
+            <div class="box"><h1>Rang List</h1></div>
+        </router-link>
+    </div>
+</div>
     <div class="card" style="padding: 0">
-        <div class="bs-example">
-            <div class="accordion" id="accordionExample">
+        
                 <div class="card" role="button">
                     <div class="card-header">
                         My Results
@@ -25,9 +32,9 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>    
+          
+    </div>  
+</div>  
     
 </template>
 

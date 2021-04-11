@@ -1,8 +1,7 @@
 <template>
-    <div class="container">
         <div class="row">
-            <div class="col-6">
-            <table class="table mt-5 table-dark">
+            <div class="col-6 ">
+            <table class="box table text-white table-borderless tablePadding">
             <thead>
                 <tr>
                     <th colspan="4">Professors:</th>
@@ -28,8 +27,9 @@
             </tbody>
             </table>
         </div>
+            
         <div class="col-6">
-            <table class="table mt-5 table-dark">
+            <table class="box table text-white table-borderless tablePadding">
             <thead>
                 <tr>
                     <th colspan="4">Admins:</th>
@@ -55,8 +55,16 @@
             </table>
         </div>
     </div>
-  </div>
 </template>
+
+<style>
+.tablePadding {
+    margin-right: 30px;
+    margin-left: 30px ;
+    width: 100%;
+}
+</style>
+
 
 <script>
 export default {

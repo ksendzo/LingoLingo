@@ -6,6 +6,13 @@
         <router-view/>
       </div>
     </div>
+  <div class="row">
+    <div class="col-12 naslov">
+      <br/>
+      Copyrights Srčići
+      <br/>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -13,9 +20,9 @@
 
 body {
   background: linear-gradient(to right, transparent, white);
-  background-image: url('./assets/traka.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-image: url('./assets/back.jpg');
+
+  object-fit: fill;
   overflow-x: hidden;
   overflow-y: auto;
 

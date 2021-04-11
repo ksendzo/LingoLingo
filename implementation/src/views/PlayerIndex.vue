@@ -5,10 +5,10 @@
         <div class="col-2">
             <ChooseLanguage/>
         </div>
-        <div class = " col-7">
+        <div class = " col-8">
             <MainPlayerContent/>
         </div>
-        <div class = "offset-1 col-2">
+        <div class = "col-2">
             <SecondaryPlayerContent/>
         </div>
     </div>

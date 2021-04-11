@@ -1,10 +1,7 @@
 <template>
   <div class="login">
     <Nav/>
-    <h1>Choose the user type to see the prototype</h1>
-    <br/>
-
-    <div class = 'row'>
+    <!--div class = 'row'>
         <div class = 'offset-2 col-2'>
             <router-link to="/player"><div class="card bg-dark text-white">Player</div></router-link>
         </div>
@@ -14,6 +11,16 @@
         <div class = "offset-1 col-2">
             <router-link to="/admin"><div class="card bg-dark text-white">Admin</div></router-link>
         </div>
+    </div-->
+    <br/>
+    <div class="row">
+      <div class="col-6">
+        <login-card/>
+      </div>
+      <div class="col-6">
+        <register-card/>
+      </div>
+
     </div>
 
   </div>
@@ -21,11 +28,15 @@
 
 <script>
 import Nav from '@/components/Nav'
+import LoginCard from '../components/noUser/LoginCard.vue'
+import RegisterCard from '../components/noUser/RegisterCard.vue'
 
 export default {
   name:'Login',
   components: {
-    Nav
+    Nav,
+    LoginCard,
+    RegisterCard
   }
 }
 </script>

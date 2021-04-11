@@ -7,21 +7,26 @@
 
 <style>
 
+.centerContent{
+    justify-content: center;
+}
+
+.box-width {
+    width: 500px; 
+}
+
 .box {
     border-radius:10px;
-    width: 500px;
     padding: 40px;
     padding-bottom: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
     background: #191919;
     text-align: center;
     transition: 0.25s;
 }
 
 .box input[type="text"],
-.box input[type="password"] {
+.box input[type="password"],
+.box select {
     border: 0;
     background: none;
     display: block;
@@ -29,11 +34,11 @@
     text-align: center;
     border: 2px solid #3498db;
     padding: 10px 10px;
-    width: 250px;
     outline: none;
     color: white;
     border-radius: 24px;
-    transition: 0.25s
+    transition: 0.25s;
+    width: 200px;
 }
 
 .box h1 {
@@ -43,9 +48,10 @@
 }
 
 .box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
+.box input[type="password"]:focus, 
+.box select:focus {
+    border-color: #2ecc71;
+    width: 250px;
 }
 
 .box button[type="button"]:active{
@@ -80,7 +86,7 @@
 
 <script>
 import Nav from '../components/Nav.vue'
-import LoginCard from '@/components/noUser/LoginCard.vue'
+import LoginCard from '../components/noUser/LoginCard.vue'
 
 export default {
   components: { Nav, LoginCard }

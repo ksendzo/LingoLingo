@@ -1,19 +1,10 @@
 <template>
 <div>
 <div class = "row" id="">
-    <div class = "offset-1 col-1 naslov">
-        <router-link to="/"> <img src="@/assets/logo3.png"/> </router-link>
+    <div class = "col-12 naslov">
+        <router-link to="/player"> <img src="@/assets/logo.png"/> </router-link>
     </div>
-    <div class="offset-1 col-9"  v-if="userType = 'player'">    
-        <div class="row">    
-            <div class="offset-1 col-2 navTab">
-                <router-link to='/player'> MY PAGE </router-link>
-            </div>
-            <div class="col-2 navTab">
-              <router-link to='/player/rangList'>  RANG LIST </router-link>
-            </div>
-        </div>
-    </div>
+    
 </div>
 <br/>
 </div>

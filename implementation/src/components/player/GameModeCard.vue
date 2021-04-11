@@ -1,25 +1,26 @@
 <template>
 
-<div class = "card text-center bg-light " id="fade" v-on:click="click">
+<div class = "box card-login noHover text-center karticaMod" id="fade" >
   <img class="card-img-top" :src="'/img/'+mode.picture"/>
-  <div class="card-body">  
-    <h5 class="card-title">{{mode.name}}</h5>
+  <div class="card-body" >  
+    <h5 class="card-title ">{{mode.name}}</h5>
     <p class="card-text"> {{mode.text}}</p>
+
   </div>
 </div>
 
 </template>
 
 <style>
-
-.CardMode {
-  background-color: maroon imp !important;
+.tablicaModova {
+  height: 350px;
 }
 
-.modovi {
-    height: 370px; /* ovo je problematicno jer posle tekst izlazi iz okvira ako se resize-uje*/
-    
+.karticaMod {
+  height:370px;
 }
+
+
 
 /*#fade{
 background: linear-gradient(to bottom, transparent, white);

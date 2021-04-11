@@ -1,25 +1,13 @@
 <template>
-<div>
-    <div class = "row" id="">
-
-        <div class = "offset-1 col-1 naslov" id="" >
-            <router-link to="/"> <img src="@/assets/logo3.png"/> </router-link>
-        </div>
-        <div class="offset-1 col-9">  
-        <div class="row">    
-            <div class="offset-1 col-2 navTab">
-                <router-link to='/login'> LOGIN </router-link>
-            </div>
-            <div class="col-3 navTab">
-                <router-link to='/register'>  REGISTER </router-link>
-            </div>
+    <div class = "row">
+        <div class = "col-12 naslov" id="" >
+            <router-link to="/"> <img src="@/assets/logo.png"/> </router-link>
         </div>
     </div>
 
         
-    </div>
-    <br/>
-</div>
+ 
+
 </template>
 
 <style>
