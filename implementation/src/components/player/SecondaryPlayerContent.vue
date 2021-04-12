@@ -15,7 +15,7 @@
                     <table class="table text-light">
                         <div v-for="(language, i) in languages" :key="language">
                             <tr>
-                                <td><img :src='"img/" + language.name + ".png"' width="40" height="30" :alt='language.name'/></td>
+                                <td><img :src='"img/languages/" + language.name + ".png"' width="40" height="30" :alt='language.name'/></td>
                                 <td>{{i += 50}}</td>
                             </tr>
                         </div>

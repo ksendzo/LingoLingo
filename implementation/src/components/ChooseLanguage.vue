@@ -3,8 +3,14 @@
         <div  v-for='language in languages' :key="language.name">
             <div class="chooseLanguage chooseLanguage-notSelected " :id='"polje_" + language.name' role="button" v-on:click="myFunction(language.name)">
                 <div class=" borderless" style="">
-                    {{language.name}}
-                    <img :src="'img/' + language.name + '.png'" width="60px" height="40px">
+                    <div class="row">
+                        <div class="offset-1 col-4" style="text-align:right">
+                        <img :src="'img/languages/' + language.name + '.png'" width="60px" height="40px">
+                        </div>
+                        <div class="offset-1 col-6" style="text-align:left; padding-top:5px">
+                        {{language.name}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

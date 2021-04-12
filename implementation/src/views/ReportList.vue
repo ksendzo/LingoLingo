@@ -19,7 +19,7 @@
           </div>
           
                 <th v-if="entry.flag" scope="row">{{ifInc(entry.flag)}}</th>
-                <td v-if="entry.flag"><img class="languageIcon" :src="'/img/'+entry.language+'.png'"/> &emsp;  {{entry.language}}</td>
+                <td v-if="entry.flag"><img class="languageIcon" :src="'/img/languages/'+entry.language+'.png'"/> &emsp;  {{entry.language}}</td>
                 <td v-if="entry.flag">{{ entry.question }}</td>
                 <td v-if="entry.flag">{{ entry.answer }}</td>
                 <td v-if="entry.flag"> 
