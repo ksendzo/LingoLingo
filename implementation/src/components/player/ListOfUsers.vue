@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class=" offset-1 col-md-11">
+    <div class=" offset-1 col-md-10">
       <div class="centerContent">
         <table class="box table text-white table-borderless">      <thead>
           <thead>
