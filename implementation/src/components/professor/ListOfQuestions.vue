@@ -12,13 +12,10 @@
           </thead>
           <tbody>
             <tr v-for="(entry, i) in users" :key="i">
-<<<<<<< HEAD
-              <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/languages/'+entry.language+'.png'"/> &emsp;  {{entry.language}}</td>
-=======
               <td style="vertical-align: middle;">
                 <div class="row">
                   <div class="col-12 ">
-                    <img class="languageIcon" :src="'/img/'+entry.language+'.png'"/>
+                    <img class="languageIcon" :src="'/img/languages/'+entry.language+'.png'"/>
                   </div></div>
                   <div class="row">
                   <div class="col-12">
@@ -26,7 +23,6 @@
                   </div></div>
                 
               </td>
->>>>>>> origin/master
               <td style="horizontal-align:middle; margin:0px;">
                 <div class="row">
                   <div class="col-12 underline">
