@@ -1,48 +1,70 @@
 <template>
 <div>
-<div class="row">
-    <div class="col-12">
-        <router-link to="/player/rangList">
-            <div class="box"><h1>Rang List</h1></div>
-        </router-link>
+    <div class="row">
+        <div class="offset-1 col-11 box rangList">
+            <router-link to="/player/rangList">
+                <h2>Rang List</h2>
+            </router-link>
+        </div>
     </div>
-</div>
-    <div class="card" style="padding: 0">
-        
-                <div class="card" role="button">
-                    <div class="card-header">
-                        My Results
-                    </div>
-                    <div class="card-body">
-                        <table class="table mt-5 table-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Score</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr >
-                                    <th scope="row">i</th>
-                                    <td>nm</td>
-                                    <td>nm</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+    <div class="row">
+            <div class="offset-1 col-11">
+                <div class="centerContent box rangList">
+                    <h2> {{user.name}}</h2>
+                    <br/>
+                    <table class="table text-light">
+                        <div v-for="(language, i) in languages" :key="language">
+                            <tr>
+                                <td><img :src='"img/" + language.name + ".png"' width="40" height="30" :alt='language.name'/></td>
+                                <td>{{i += 50}}</td>
+                            </tr>
+                        </div>
+                    </table>
                 </div>
-          
-    </div>  
+            </div>
+        </div>
 </div>  
     
 </template>
 
+<style>
+.box a{
+    text-decoration: none;
+}
+.box a:hover{
+    text-decoration: none;
+}
+
+.box.rangList {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.box h2 {
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 25px;
+}
+
+
+</style>
+
 
 <script>
+import languages from '@/data/languages.js'
 
 export default {
     name: "SecondaryPlayerContent",
+    data() {
+        return {
+            user: {
+                name: "Ana Petrovic"
+            }, 
+            languages: languages
+        }
+    }
 
 }
 </script>
