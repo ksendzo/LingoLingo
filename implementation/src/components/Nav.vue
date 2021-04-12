@@ -1,16 +1,74 @@
 <template>
     <div class = "row">
-        <div class = "col-12 naslov" id="" >
-            <router-link to="/"> <img src="@/assets/logo.png"/> </router-link>
+        <div class = " offset-1 col-10 naslov" id="" >
+            <router-link to="/"> 
+                <img src="@/assets/logo.png"/>
+            </router-link>
         </div>
+        <!--div class="col-1 " id="poz"-->
+        <button class="logout"> <!--type="submit" name="" value="Log out " href="#"-->
+            
+            <img src="@/assets/logout.png" width="30" height="30"/>
+        </button>
     </div>
-
-        
- 
-
 </template>
 
 <style>
+
+
+.logout  {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    height: 50px;
+    margin-top: 30px;
+
+}
+
+.logout:hover{
+    background: #3498db;
+    border-radius: 20px;
+    
+}
+
+#poz {
+    background: transparent;
+    padding:0px;
+}
+
+#poz button{
+    border-radius:10px;
+    padding: 40px;
+    padding-bottom: 10px;
+    background: #191919;
+    text-align: center;
+    transition: 0.25s;
+    align-content:right; 
+
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    width: 200px;
+
+    background:#191919;
+    border: 2px solid #3498db;
+}
+#poz button:hover{
+
+    background: #3498db;
+}
+
 .naslov a{
     font-weight:bolder;
     text-decoration: none;

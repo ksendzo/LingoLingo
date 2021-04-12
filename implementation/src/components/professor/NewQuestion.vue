@@ -25,6 +25,14 @@
 </template>
 
 <style>
+
+.box.newQuestion select option {
+    background-color: #191919;
+    color: whitesmoke;
+    
+}
+
+
 .box.newQuestion {
     border-radius:10px;
     padding: 40px;

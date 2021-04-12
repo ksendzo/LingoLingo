@@ -26,7 +26,8 @@
 
 .box input[type="text"],
 .box input[type="password"],
-.box select {
+.box select, 
+.box section option {
     border: 0;
     background: none;
     display: block;
@@ -49,7 +50,8 @@
 
 .box input[type="text"]:focus,
 .box input[type="password"]:focus, 
-.box select:focus {
+.box select:focus, 
+.box option:focus {
     border-color: #2ecc71;
     width: 250px;
 }

@@ -1,13 +1,19 @@
 <template>
-<div>
-<div class = "row" id="">
-    <div class = "col-12 naslov">
-        <router-link to="/player"> <img src="@/assets/logo.png"/> </router-link>
+  <div>
+    <div class = "row">
+        <div class = " offset-1 col-10 naslov" id="" >
+            <router-link to="/player"> 
+                <img src="@/assets/logo.png"/>
+            </router-link>
+        </div>
+        <!--div class="col-1 " id="poz"-->
+        <button class="logout"> <!--type="submit" name="" value="Log out " href="#"-->
+            
+            <img src="@/assets/logout.png" width="30" height="30"/>
+        </button>
     </div>
-    
-</div>
-<br/>
-</div>
+
+  </div>
 </template>
 
 <style>
