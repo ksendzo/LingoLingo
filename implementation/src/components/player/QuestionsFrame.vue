@@ -1,5 +1,12 @@
 <template>
   <div class="box">
+    <div class="row" v-if="basic">
+      <div class="offset-10 col-2" >
+          <img src="@/assets/pinkHeart.png" width="40" height="40">
+          <img src="@/assets/redHeart.png" width="40" height="40">
+          <img src="@/assets/redHeart.png" width="40" height="40">
+      </div>
+    </div>
     
     <div class="row">
       <div class="offset-2 col-8">
@@ -67,13 +74,24 @@ export default {
   name:'QuestionFrame',
   data() {
     return {
-      isActive: true
+      isActive: true,
+      basic: true
     };
   },
   methods: {
     toggle() {
       this.isActive = this.isActive ? false : true;
+    }, 
+    waitMe(){
+      if(localStorage.getItem("mode") == "")  {
+    setTimeout(this.waitMe(), 300); // try again in 300 milliseconds
+  } else {
+    this.basic = localStorage.getItem("mode") === "Basic";
+  }
     }
+  },
+  beforeMount(){
+   this.waitMe();
   }
 }
 
