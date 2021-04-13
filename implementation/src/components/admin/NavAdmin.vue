@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class = "row">
         <div class = " offset-1 col-10 naslov" id="" >
             <router-link to="/admin"> 
@@ -11,6 +12,9 @@
             <img src="@/assets/logout.png" width="30" height="30"/>
         </button>
     </div>
+    <br/>
+    <br/>
+</div>
 </template>
 
 

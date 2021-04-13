@@ -11,6 +11,7 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import QuestionList from '@/views/QuestionList.vue'
 import ReportList from '@/views/ReportList.vue'
+import RequestPage from '@/views/RequestPage.vue'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -73,6 +74,11 @@ const routes = [
     path: '/admin/ReportList',
     name: 'ReportList',
     component: ReportList
+  },
+  {
+    path: '/admin/RequestPage',
+    name: 'RequestPage',
+    component: RequestPage
   }
 
 ]
