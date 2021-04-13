@@ -1,7 +1,7 @@
 <template>
     <div class="" style="padding:20px">
-        <div class = 'row tablicaModova' >
-            <div v-for='mode in modes' :key="mode.name" class = "col-4 tablicaModova" style = "width:100%">
+        <div class = 'row' >
+            <div v-for='mode in modes' :key="mode.name" class = "col-4" style = "width:100%">
                 <router-link to='/question' class="noHover">
                     <GameModeCard :mode='mode'/>
                 </router-link>

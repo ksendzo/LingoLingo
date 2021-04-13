@@ -8,7 +8,7 @@ var users = [
                 survival_score:320
             }, 
             {
-                languge: "Spanish", 
+                language: "Spanish", 
                 basic_score: 537,
                 survival_score: 20
             }
@@ -23,9 +23,14 @@ var users = [
                 survival_score: 390
             }, 
             {
-                languge: "Spanish", 
+                language: "German", 
                 basic_score: 120,
                 survival_score: 1990
+            },
+            {
+                language: "Italian", 
+                basic_score: 12,
+                survival_score: 199
             }
         ]
     },
@@ -38,7 +43,7 @@ var users = [
                 survival_score: 390
             }, 
             {
-                languge: "Spanish", 
+                language: "Spanish", 
                 basic_score: 120,
                 survival_score: 1990
             }
@@ -53,7 +58,7 @@ var users = [
                 survival_score: 390
             }, 
             {
-                languge: "Spanish", 
+                language: "Spanish", 
                 basic_score: 120,
                 survival_score: 1990
             }
@@ -68,7 +73,7 @@ var users = [
                 survival_score: 390
             }, 
             {
-                languge: "Spanish", 
+                language: "Spanish", 
                 basic_score: 120,
                 survival_score: 1990
             }
@@ -83,7 +88,7 @@ var users = [
                 survival_score: 390
             }, 
             {
-                languge: "Spanish", 
+                language: "Spanish", 
                 basic_score: 120,
                 survival_score: 1990
             }
@@ -98,7 +103,7 @@ var users = [
                 survival_score: 390
             }, 
             {
-                languge: "Spanish", 
+                language: "Spanish", 
                 basic_score: 120,
                 survival_score: 1990
             }

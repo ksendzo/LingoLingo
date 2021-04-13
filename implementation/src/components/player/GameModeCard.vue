@@ -12,20 +12,14 @@
 </template>
 
 <style>
-.tablicaModova {
-  height: 350px;
+
+.box.karticaMod {
+  padding: 10px;
 }
 
 .karticaMod {
-  height:370px;
+  height: 100%;
 }
-
-
-
-/*#fade{
-background: linear-gradient(to bottom, transparent, white);
-}
-*/
 
 </style>
 

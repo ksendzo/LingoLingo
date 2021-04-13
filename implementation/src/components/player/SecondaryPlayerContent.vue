@@ -1,6 +1,6 @@
 <template>
-<div>
-    <div class="row">
+<div style="padding-top:20px">
+    <div class="row ">
         <div class="offset-1 col-11 box rangList">
             <router-link to="/player/rangList">
                 <h2>Rang List</h2>
@@ -8,19 +8,28 @@
         </div>
     </div>
     <div class="row">
-            <div class="offset-1 col-11">
-                <div class="centerContent box rangList">
+            <div class="offset-1 col-11 box rangList">
+                <!--div class="centerContent "-->
                     <h2> {{user.name}}</h2>
                     <br/>
                     <table class="table text-light">
-                        <div v-for="(language, i) in languages" :key="language">
+                        <thead>
                             <tr>
-                                <td><img :src='"img/languages/" + language.name + ".png"' width="40" height="30" :alt='language.name'/></td>
-                                <td>{{i += 50}}</td>
+                                <th></th>
+                                <th>sum</th>
+                                <th>basic</th>
+                                <th>survival</th>
                             </tr>
-                        </div>
+                        </thead>
+                        <tr v-for="result in results" :key="result.language">
+                            
+                                <td><img :src='"img/languages/" + result.language + ".png"' width="40" height="30" :alt='result.language'/></td>
+                                <td>{{result.basic_score + result.survival_score}}</td>
+                                <td>{{result.basic_score}}</td>
+                                <td>{{result.survival_score}}</td>
+                            </tr>
                     </table>
-                </div>
+                <!--/div-->
             </div>
         </div>
 </div>  
@@ -28,6 +37,12 @@
 </template>
 
 <style>
+.box .table tr {
+    width: 100%;
+    font-size: 90%;
+}
+
+
 .box a{
     text-decoration: none;
 }
@@ -53,17 +68,19 @@
 
 
 <script>
-import languages from '@/data/languages.js'
+import users from '@/data/users.js'
 
 export default {
     name: "SecondaryPlayerContent",
     data() {
         return {
-            user: {
-                name: "Ana Petrovic"
-            }, 
-            languages: languages
+            user: {}, 
+            results:[]
         }
+    }, 
+    mounted:function(){
+        this.user = users[1];
+        this.results = this.user.results;
     }
 
 }

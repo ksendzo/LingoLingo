@@ -2,7 +2,7 @@
   <div class="row">
     <div class=" offset-1 col-md-10">
       <div class="centerContent">
-        <table class="box table text-white table-borderless">      <thead>
+        <table class="box table text-white" style="border-top:none;"> 
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -27,6 +27,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import users from '@/data/users.js'
