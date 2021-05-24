@@ -1,0 +1,22 @@
+# Šta sve treba uraditi za komunikaciom sa bazom
+
+Registracija    - GET - proveri da ne postoji  
+                - PUT - dodaj novog korisnika
+        
+Login           - GET - proveri da li postoji i vrati sve o njemu ako postoji
+
+Question        - GET - dohvati random pitanje iz baze sa zadatim jezikom
+
+Rang Lista      - GET - SVE a ja ću u js-u da izfiltriram ako je to lakše
+
+New Question    - PUT
+
+UpdateQuestion  - PATCH
+DeleteQuestion  - DELETE
+
+Accept User     - PATCH 
+Delete User     - DELETE
+
+
+              
+              
