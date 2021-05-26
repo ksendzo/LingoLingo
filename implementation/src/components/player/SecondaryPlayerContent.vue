@@ -36,6 +36,29 @@
     
 </template>
 
+
+
+<script>
+// import users from '@/data/users.js'
+
+export default {
+    name: "SecondaryPlayerContent",
+    data() {
+        return {
+            user: {}, 
+            results:[]
+        }
+    }, 
+    mounted:function(){
+        // this.user = users[1];
+        this.user = JSON.parse(localStorage.getItem("user"));
+        this.results = this.user.results;
+    }
+
+}
+</script>
+
+
 <style>
 .box .table tr {
     width: 100%;
@@ -65,23 +88,3 @@
 
 
 </style>
-
-
-<script>
-import users from '@/data/users.js'
-
-export default {
-    name: "SecondaryPlayerContent",
-    data() {
-        return {
-            user: {}, 
-            results:[]
-        }
-    }, 
-    mounted:function(){
-        this.user = users[1];
-        this.results = this.user.results;
-    }
-
-}
-</script>
