@@ -1,10 +1,10 @@
 <template>
     <div class="" style="padding:20px">
         <div class = 'row' >
-            <div v-for='mode in modes' :key="mode.name" class = "col-4" style = "width:100%" v-on:click="setMode(mode.name)">
-                <router-link to='/question' class="noHover">
-                    <GameModeCard :mode='mode'/>
-                </router-link>
+            <div v-for='mode in modes' :key="mode.name" class = "col-4" style = "width:100%" v-on:click="igra(mode.name)">
+                <!--router-link to='/question' class="noHover"-->
+                    <GameModeCard :mode='mode'  class="noHover"/>
+                <!--/router-link-->
             </div>
         </div>
     </div>
@@ -47,17 +47,10 @@ export default {
         GameModeCard
     },
     methods: {
-        setMode: function(name){
-            localStorage.setItem("mode", name);
-        },
-        waitMe(){
-            if(localStorage.getItem("mode") !== "")  {
-                setTimeout(this.waitMe(), 300); // try again in 300 milliseconds
+        igra: function(mode) {
+            localStorage.setItem("mode", mode);
+            this.$router.replace('/question');
         }
-        }
-    },
-    mounted() {
-        this.waitMe();
     },
     beforeMount() {
         localStorage.setItem("mode", "");
