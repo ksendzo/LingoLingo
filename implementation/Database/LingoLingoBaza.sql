@@ -175,7 +175,7 @@ CREATE TABLE `useraccounts` (
   UNIQUE KEY `Email_UNIQUE` (`Email`),
   KEY `FK_IdUserType_idx` (`IdUserType`),
   KEY `FK_IdStatus_idx` (`IdStatus`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `useraccounts` (
 
 LOCK TABLES `useraccounts` WRITE;
 /*!40000 ALTER TABLE `useraccounts` DISABLE KEYS */;
-INSERT INTO `useraccounts` VALUES (1,'Milos','Jovanovic','milosjovanovic94','smekercina','milos_j194@hotmail.com',3,1),(2,'Ksenija','Bulatovic','ksendzo','123','mejl@g.com',3,1),(3,'Milos','Cirkovic','cirko','muffinman','cirko@gmail.com',2,2);
+INSERT INTO `useraccounts` VALUES (1,'Milos','Jovanovic','milosjovanovic94','smekercina','milos_j194@hotmail.com',3,1),(2,'Ksenija','Bulatovic','ksendzo','123','mejl@g.com',3,1),(3,'Milos','Cirkovic','cirko','muffinman','cirko@gmail.com',2,2),(4,'Marko','Stanojevic','mare','doktor','maredoktor@yahoo.com',1,1),(5,'Luka','Simic','simke','spacex','simke@hotmail.com',2,1);
 /*!40000 ALTER TABLE `useraccounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,4 +223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-28 20:42:08
+-- Dump completed on 2021-05-29 18:48:57

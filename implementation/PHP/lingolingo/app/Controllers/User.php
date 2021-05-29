@@ -15,32 +15,55 @@ class User extends BaseController
 				'password' => $this->request->getVar('password')
 			];*/
 
-            $data2 = $this->receiveAJAX();
-            $name = $this->request->getVar('username', FILTER_SANITIZE_STRING);
+            $this->receiveAJAX();
+            $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
             $pass = $this->request->getVar('password', FILTER_SANITIZE_STRING);
             
             $model = new UserModel();
-            $userId = $model->CheckUserExists($name, $pass);
+            $userId = $model->CheckUserExists($username, $pass);
+            
+            $loginResult = array(
+                "LoginSuccessful" => false, 
+                "Username" => null,
+                "FirstName" => null,
+                "LastName" => null,
+                "UserTypeId" => null,
+                "AccountStatus" => null,
+                "Message" => null
+                );
         
             if($userId > 0)
             {
+                $_SESSION['username'] = $username;
+                
                 $user = $model->GetUserByID($userId);
                 $accModel = new AccountStatusModel();
-                $userStatusName = $accModel->GetStatusNameByID($user->IdStatus);
                 
-                if($userStatusName == APPROVED_STATUS_NAME)
+                $loginResult["AccountStatus"] = $accModel->GetStatusNameByID($user->IdStatus);
+                $loginResult["Username"] = $username;
+                $loginResult["FirstName"] = $user->FirstName;
+                $loginResult["LastName"] = $user->LastName;
+                $loginResult["UserTypeId"] = $user->IdUserType;
+                
+                if($loginResult["AccountStatus"] == APPROVED_STATUS_NAME)
                 {
-                    $_SESSION['username'] = $name;
-                    $this->sendAJAX($user);
+                    $loginResult["LoginSuccessful"] = true;
                 }
                 else
                 {
-                    $this->sendAJAX("Your account is still pending approval...");
+                    $loginResult["Message"] = "Your account is still pending approval";
                 }
             }
             else
             {
-                $this->sendAJAX("false");
+                $loginResult["Message"] = "Incorrect username or password";
             }  
+            
+            $this->sendAJAX(json_encode($loginResult));
+        }
+        
+        public function register()
+        {
+            
         }
 }
