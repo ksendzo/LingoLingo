@@ -25,6 +25,16 @@ export default {
     NewQuestion,
     QuestionList
 
-  }
+  },
+  beforeMount(){
+        if(!localStorage.Username)
+        {
+          this.$router.push("/");
+        }
+        else if(localStorage.UserTypeId != 2)
+        {          
+          this.$router.go(-1);
+        }
+  },
 }
 </script>

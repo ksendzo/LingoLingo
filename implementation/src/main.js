@@ -11,4 +11,3 @@ new Vue({
   render: h => h(App),
   data: {color: '#550055'}
 }).$mount('#app')
-

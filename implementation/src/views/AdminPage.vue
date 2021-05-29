@@ -30,6 +30,16 @@ export default {
   components:{
      NavAdmin
 
-  }
+  },
+  beforeMount(){
+        if(!localStorage.Username)
+        {
+          this.$router.push("/");
+        }
+        else if(localStorage.UserTypeId != 3)
+        {          
+          this.$router.go(-1);
+        }
+  },
 }
 </script>

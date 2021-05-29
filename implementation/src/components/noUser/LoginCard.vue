@@ -23,6 +23,9 @@ export default {
             password: ''
         };
     },
+    beforeMount(){
+            localStorage.clear();
+    },
     methods: {
         login()
         {   
@@ -33,18 +36,40 @@ export default {
             
             this.$guest.post('/login', JSON.stringify(form))
             .then( res => {
-                alert(res.data.Username);
-                let user = {name: res.data.FirstName + " " + res.data.LastName};
+                if(res.data.LoginSuccessful == true)
+                {
+                    let userFullName = String(res.data.FirstName) + " " + String(res.data.LastName);
+                    let userAccountTypeId = res.data.UserTypeId;
 
-                localStorage.setItem("user", JSON.stringify(user));
+                    localStorage.setItem("UserFullName", userFullName);
+                    localStorage.setItem("Username", res.data.Username);
+                    localStorage.setItem("UserTypeId", userAccountTypeId);
 
-                this.$router.push('/player');
-
-                res.data;
+                    if(userAccountTypeId == 1)
+                    {
+                        this.$router.push('/player');
+                    }
+                    else if(userAccountTypeId == 2)
+                    {
+                        this.$router.push('/professor');
+                    }
+                    else if(userAccountTypeId == 3)
+                    {
+                        this.$router.push('/admin');
+                    }
+                    else
+                    {
+                        alert("Error! Incorrect account type");
+                    }
+                }
+                else
+                {
+                    alert(JSON.stringify(res.data.Message));
+                }
             })
             .catch(err => {
                 this.msg = err.response.data.message.console.error();
-                alert("Greska");
+                alert("Unknown error");
             })
             //axios
 

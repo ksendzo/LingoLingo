@@ -29,7 +29,17 @@ export default {
         SecondaryPlayerContent, 
         NavPlayer, 
         ChooseLanguage
-    }
+    },
+    beforeMount(){
+        if(!localStorage.Username)
+        {
+          this.$router.push("/");
+        }
+        else if(localStorage.UserTypeId != 1)
+        {          
+          this.$router.go(-1);
+        }
+  },
 }
 </script>
 
