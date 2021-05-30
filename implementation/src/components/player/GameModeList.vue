@@ -52,10 +52,6 @@ export default {
             this.$router.replace('/question');
         }
     },
-    beforeMount() {
-        localStorage.setItem("mode", "");
-        this.waitMe();
-    },
 
     data(){
         return {

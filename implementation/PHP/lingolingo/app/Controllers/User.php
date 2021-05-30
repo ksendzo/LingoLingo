@@ -1,19 +1,24 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\AccountStatusModel;
+use App\Models\LanguageModel;
+use App\Models\QuestionModel;
+
+ 
 
 class User extends BaseController
 {
-	public function login()
-	{
+    public function login()
+    {
             //$this->receiveAJAX();
             /*$data = [
-				'username' => $this->request->getVar('username'),
-				'password' => $this->request->getVar('password')
-			];*/
+                'username' => $this->request->getVar('username'),
+                'password' => $this->request->getVar('password')
+            ];*/
+
+ 
 
             $this->receiveAJAX();
             $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
@@ -66,4 +71,96 @@ class User extends BaseController
         {
             
         }
+        
+        public function languages() {
+            $this->receiveAJAX();
+            
+            $model = new LanguageModel();
+            $languages = $model->GetLanguageNames();
+            
+            $result = ["Spanish", "German", "Italian"];
+            $this->sendAJAX(json_encode($languages));
+        }
+        
+        public function newQuestion() {
+            $this->receiveAJAX();
+            $question = $this->request->getVar('question', FILTER_SANITIZE_STRING);
+            $answer = $this->request->getVar('answer', FILTER_SANITIZE_STRING);
+            $languageName = $this->request->getVar('language', FILTER_SANITIZE_STRING);
+            $username = $this->request->getVar('professor', FILTER_SANITIZE_STRING);
+            
+            $languageModel = new LanguageModel();
+            $languageId = $languageModel->GetLanguageId($languageName);
+            
+            $userModel = new UserModel();
+            $authorId = $userModel->GetUserId($username);
+            
+            $model = new QuestionModel();
+            $model->NewQuestion($languageId, $authorId, $question, $answer);
+            
+        }
+        
+        public function question() {
+            $this->receiveAJAX();
+            
+            $language = $this->request->getVar('language', FILTER_SANITIZE_STRING);
+            
+            $languageModel = new LanguageModel();
+            $languageId = $languageModel->GetLanguageId($language);
+            
+            $questionModel = new QuestionModel();
+            $result = $questionModel->getRandomQuestion($languageId);
+            
+            $this->sendAJAX($result);
+            
+        }
+        
+        public function userInfo(){
+            $this->receiveAJAX();
+            
+            $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
+            
+            $userModel = new UserModel();
+            $name = $userModel->getUserFullName($username);
+            
+            $oneResult = array (
+                'language'       => "German", 
+                'basic_score'    => 120,
+                'survival_score' => 1990
+            );
+            $results = array($oneResult);
+            
+            $result = array(
+                'name'      =>  $name,
+                'results'   =>  $results
+            );
+            
+            $this->sendAJAX($result);
+            
+        }
+        
+        
+    public function questions(){
+        $this->receiveAJAX();
+        
+        $model = new QuestionModel();
+        $questions = $model->GetAllQuestions();
+        
+        $languageModel = new LanguageModel();
+        
+        $data;
+        
+        for($i = 0; $i < count($questions); $i++){
+            $data[$i] =  array(
+                'language'  => $languageModel->GetLanguageName($questions[$i]->IdLanguage),
+                'question'  =>  $questions[$i]->QuestionText,
+                'answer'    =>  $questions[$i]->AnswerText,
+                'flag'      =>  $questions[$i]->IsFlagged
+            );
+        }
+        
+        $this->sendAJAX($data);
+        
+    }
 }
+ 

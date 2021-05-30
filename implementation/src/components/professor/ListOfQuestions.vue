@@ -11,7 +11,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(entry, i) in users" :key="i">
+            <tr v-for="(entry, i) in questions" :key="i">
               <td style="vertical-align: middle;">
                 <div class="row">
                   <div class="col-12 ">
@@ -64,34 +64,46 @@ export default {
   name: "ListOfQuestions",
   data() {
       return {
-        users: [
-            {
-                language: "German", 
-                question: "This is a question.", 
-                answer: "Das ist eine Frage.",
-                flag: false
-            },
-            {
-                language: "German", 
-                question: "I don't like styling web pages.", 
-                answer: "Ich mag es nicht, Webseiten zu stylen.",
-                flag: false
-            },
-            {
-              language: "German",
-              question: "But I can sure make it work!", 
-              answer: "Aber ich kann es sicher schaffen!",
-              flag: false
-            },
-            {
-                language: "Spanish", 
-                question: "Hi, how are you?", 
-                answer: "¿Hola, cómo estás?",
-                flag: true
+        // users: [
+        //     {
+        //         language: "German", 
+        //         question: "This is a question.", 
+        //         answer: "Das ist eine Frage.",
+        //         flag: false
+        //     },
+        //     {
+        //         language: "German", 
+        //         question: "I don't like styling web pages.", 
+        //         answer: "Ich mag es nicht, Webseiten zu stylen.",
+        //         flag: false
+        //     },
+        //     {
+        //       language: "German",
+        //       question: "But I can sure make it work!", 
+        //       answer: "Aber ich kann es sicher schaffen!",
+        //       flag: false
+        //     },
+        //     {
+        //         language: "Spanish", 
+        //         question: "Hi, how are you?", 
+        //         answer: "¿Hola, cómo estás?",
+        //         flag: true
             
-            }
-        ]
+        //     }
+        // ],
+        questions: []
       }
+  },
+  beforeMount() {
+    this.getQuestions();
+  },
+  methods: {
+    getQuestions: function() {
+      this.$guest.post('/questions')
+      .then(res => {
+        this.questions = res.data;      
+    });
+    }
   }
 };
 </script>

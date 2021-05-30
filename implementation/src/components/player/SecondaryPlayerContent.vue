@@ -10,7 +10,7 @@
     <div class="row">
             <div class="offset-1 col-11 box rangList">
                 <!--div class="centerContent "-->
-                    <h2> {{userFirstNameLastName}}</h2>
+                    <h2> {{user.name}}</h2>
                     <br/>
                     <table class="table text-light">
                         <thead>
@@ -46,13 +46,25 @@ export default {
     data() {
         return {
             user: {}, 
-            results:[]
+            results:[], 
+            username: ''
         }
     }, 
-    mounted:function(){
+    beforeMount:function(){
         // this.user = users[1];
-        this.userFirstNameLastName = localStorage.UserFullName;
-        this.results = this.user.results;
+        // this.userFirstNameLastName = localStorage.UserFullName;
+        // this.results = this.user.results;
+        this.username = localStorage.getItem('Username');
+        this.$guest.post('/userInfo', JSON.stringify({"username": this.username}))
+        .then(res => {
+            // alert(res.data);
+
+            this.user = res.data;
+            this.results = this.user.results;
+
+
+        });
+
     }
 
 }

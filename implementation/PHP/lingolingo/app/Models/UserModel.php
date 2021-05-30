@@ -1,6 +1,10 @@
 <?php namespace App\Models;
 
+ 
+
 use CodeIgniter\Model;
+
+ 
 
 
 class UserModel extends Model
@@ -67,6 +71,8 @@ class UserModel extends Model
          */
     }
 
+ 
+
     public function kategorije()
     {
         
@@ -84,4 +90,21 @@ class UserModel extends Model
          */
     }
     
+    public function GetUserId($username) {
+        $builder = $this->db->table('useraccounts');
+        $builder->select("*");
+        $builder->where('Username', $username);
+        
+        $result = $builder->get()->getResultObject();
+        return $result[0]->IdUser;
+    }
+    
+    public function GetUserFullName($username){
+        $builder = $this->db->table('useraccounts');
+        $builder->select('*');
+        $builder->where('Username', $username);
+        
+        $result = $builder->get()->getResultObject();
+        return $result[0]->FirstName . " " . $result[0]->LastName;
+    }
 }

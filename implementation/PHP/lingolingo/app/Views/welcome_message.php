@@ -283,10 +283,6 @@
 			 join us</a> ?</p>
 
 	</section>
-        
-    <div>
-        <?php phpinfo(); ?>
-    </div>
 
 </div>
 

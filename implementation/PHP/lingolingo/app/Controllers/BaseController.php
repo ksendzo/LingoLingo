@@ -23,8 +23,9 @@ use Psr\Log\LoggerInterface;
 
 class BaseController extends Controller
 {
-	protected $session;
-        /**
+    
+    protected $session;
+	/**
 	 * Instance of the main Request object.
 	 *
 	 * @var IncomingRequest|CLIRequest
@@ -64,20 +65,20 @@ class BaseController extends Controller
             $data = $this->request->getJSON(true);
             // get the method used to send the request
             $method = '_'.strtoupper($this->request->getMethod());
-            
+           
             // overwrite the superglobal request method array
             $GLOBALS[$method] = $data;
             // overwrite the request superglobal array (the array that gets its values from the actual request method array)
             $GLOBALS['_REQUEST'] = $data;
-            
+           
             // return the message data
             return $data;
         }
-        
+       
         /*
          * encode the given data as a JSON object and send an AJAX response to the client
          * this method doesn't check if the $data is convertible to JSON
-         * 
+         *
          * @param data -- data that will be sent as the response
          * @return none
          */
