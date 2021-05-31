@@ -5,6 +5,7 @@ import { guest } from './plugins/axios'
 
 Vue.config.productionTip = false
 
+
 new Vue({
   router,
   guest,

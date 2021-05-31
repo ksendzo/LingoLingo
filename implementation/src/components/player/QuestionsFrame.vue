@@ -93,13 +93,6 @@ export default {
       else 
         this.message = "Plaky...";
     }
-  //   waitMe(){
-  //     if(localStorage.getItem("mode") == "")  {
-  //   setTimeout(this.waitMe(), 300); // try again in 300 milliseconds
-  // } else {
-  //   this.basic = localStorage.getItem("mode") === "Basic";
-  // }
-  //   }
   },
   beforeMount(){
       let language = localStorage.getItem("language");

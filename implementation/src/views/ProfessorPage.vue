@@ -7,7 +7,7 @@
         <NewQuestion/>
       </div>
       <div class="col-6">
-        <QuestionList/>
+        <ListOfQuestions ref="list"/>
       </div>
     </div>
   </div>
@@ -16,15 +16,14 @@
 <script>
 import NavProfessor from '@/components/professor/NavProfessor'
 import NewQuestion from '../components/professor/NewQuestion'
-import QuestionList from './QuestionList.vue'
+import ListOfQuestions from '@/components/professor/ListOfQuestions.vue'
 export default {
 
   name:'ProfesorPage',
   components:{
     NavProfessor,
     NewQuestion,
-    QuestionList
-
+    ListOfQuestions
   },
   beforeMount(){
         if(!localStorage.Username)
@@ -36,5 +35,10 @@ export default {
           this.$router.go(-1);
         }
   },
+  methods: {
+    callList: function() {
+      this.$refs.list.getQuestions();
+    }
+  }
 }
 </script>

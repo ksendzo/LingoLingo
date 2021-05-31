@@ -9,7 +9,6 @@ import QuestionPage from '../views/QuestionPage.vue'
 import RangList from '../components/player/RangList.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
-import QuestionList from '@/views/QuestionList.vue'
 import ReportList from '@/views/ReportList.vue'
 import RequestPage from '@/views/RequestPage.vue'
 
@@ -64,11 +63,6 @@ const routes = [
     path: '/Register',
     name: 'Register',
     component: Register
-  }, 
-  {
-    path: '/professor/QuestionList',
-    name: 'QuestionList',
-    component: QuestionList
   }, 
   {
     path: '/admin/ReportList',

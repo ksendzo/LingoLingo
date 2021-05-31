@@ -84,7 +84,8 @@ export default {
 
             this.question = '';
             this.answer = '';
-            this.$root.$on()
+            this.$parent.callList();//$ref.listOfQuestions.getQuestions();
+            //this.$parent.$refs.list.getQuestions();
         }
     }
 }

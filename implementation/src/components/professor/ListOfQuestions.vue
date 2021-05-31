@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="row">
     <div class=" offset-1 col-md-11">
       <div class="centerContent">
@@ -35,13 +36,14 @@
               </td>
               <td style="vertical-align: middle;"><img class="languageIcon" src="@/assets/pen.png"/></td>
               <td style="vertical-align: middle;"><img class="languageIcon" src="@/assets/delete.png"/></td>
-              <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/languages/'+entry.flag+'.png'"/></td>
+              <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/'+entry.flag+'.png'"/></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <style>
@@ -60,6 +62,7 @@
 </style>
 
 <script>
+
 export default {
   name: "ListOfQuestions",
   data() {
@@ -103,6 +106,7 @@ export default {
       .then(res => {
         this.questions = res.data;      
     });
+    
     }
   }
 };
