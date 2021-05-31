@@ -78,4 +78,27 @@ defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-defined('APPROVED_STATUS_NAME') || define('APPROVED_STATUS_NAME', "Approved");
+// ACCOUNT STATUS NAMES
+defined('ACCOUNT_STATUS_APPROVED') || define('ACCOUNT_STATUS_APPROVED', "Approved");
+defined('ACCOUNT_STATUS_PENDING') || define('ACCOUNT_STATUS_PENDING', "Pending");
+defined('ACCOUNT_STATUS_SUSPENDED') || define('ACCOUNT_STATUS_SUSPENDED', "Suspended");
+
+// ACCOUNT TYPES
+defined('ACCOUNT_TYPE_PLAYER') || define('ACCOUNT_TYPE_PLAYER', "Player");
+defined('ACCOUNT_TYPE_PROFESSOR') || define('ACCOUNT_TYPE_PROFESSOR', "Professor");
+defined('ACCOUNT_TYPE_ADMIN') || define('ACCOUNT_TYPE_ADMIN', "Administrator");
+
+// LOGIN
+defined('LOGIN_UNKNOWN_USER') || define('LOGIN_UNKNOWN_USER', "User with entered username doesn't exist");
+defined('LOGIN_WRONG_PASSWORD') || define('LOGIN_WRONG_PASSWORD', "You've entered an incorrect password");
+defined('LOGIN_PENDING_APPROVAL') || define('LOGIN_PENDING_APPROVAL', "Your account is still pending approval");
+defined('LOGIN_ACCOUNT_SUSPENDED') || define('LOGIN_ACCOUNT_SUSPENDED', "Your account has been suspended");
+
+// REGISTRATION
+defined('REGISTRATION_MISSING_INFO') || define('REGISTRATION_MISSING_INFO', "All fields are required");
+defined('REGISTRATION_PASSWORD_MISMATCH') || define('REGISTRATION_PASSWORD_MISMATCH', "Entered passwords do not match");
+defined('REGISTRATION_USERNAME_TAKEN') || define('REGISTRATION_USERNAME_TAKEN', "Username you entered is already taken");
+defined('REGISTRATION_EMAIL_TAKEN') || define('REGISTRATION_EMAIL_TAKEN', "Email you entered is already taken");
+defined('REGISTRATION_PASSWORD_TOO_LONG') || define('REGISTRATION_PASSWORD_TOO_LONG', "Password you entered is too long. Length of the password can not exceed 70 characters");
+defined('REGISTRATION_INCORRECT_ACCOUNT_TYPE') || define('REGISTRATION_INCORRECT_ACCOUNT_TYPE', "Incorrect account type");
+defined('REGISTRATION_SUCCESSFUL') || define('REGISTRATION_SUCCESSFUL', "Registration successful");
