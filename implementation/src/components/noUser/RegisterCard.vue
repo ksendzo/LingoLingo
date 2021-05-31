@@ -12,11 +12,11 @@
                         <input type="password" name="" placeholder="Password" v-model="Password"> 
                         <input type="password" name="" placeholder="Confirm Password" v-model="ConfirmPassword">
                         
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-outline-success" value="active">Player</button>
-                            <button type="button" class="btn btn-outline-success">Professor</button>
-                            <button type="button" class="btn btn-outline-success">Admin</button>
-                        </div>
+                        <ButtonGroup class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-success" v-on:click="btnClick('player')" id="player">Player</button>
+                            <button type="button" class="btn btn-outline-success" v-on:click="btnClick('professor')" id="professor">Professor</button>
+                            <button type="button" class="btn btn-outline-success" v-on:click="btnClick('admin')" id="admin">Admin</button>
+                        </ButtonGroup>
 
                         <input type="submit" name="" value="Register" href="#">
                     </form>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import $ from 'jquery'
+
 export default {
     name: 'RegisterCard',
     data() {
@@ -35,12 +37,28 @@ export default {
             Username: '',
             Email: '',
             Password: '',
-            ConfirmPassword: ''
+            ConfirmPassword: '', 
+            playerType: ''
         };
     },
     methods: {
-        register() {
-            
+        btnClick(elem) {
+            this.playerType = elem;
+            if(elem == 'player'){
+                $('#player').removeClass('btn-outline-success').addClass('btn-success');
+                $('#professor').removeClass('btn-success').addClass('btn-outline-success');
+                $('#admin').removeClass('btn-success').addClass('btn-outline-success');
+            }
+            if(elem == 'professor'){
+                $('#player').removeClass('btn-success').addClass('btn-outline-success');
+                $('#professor').removeClass('btn-outline-success').addClass('btn-success');
+                $('#admin').removeClass('btn-success').addClass('btn-outline-success');
+            }
+            if(elem == 'admin'){
+                $('#player').removeClass('btn-success').addClass('btn-outline-success');
+                $('#professor').removeClass('btn-success').addClass('btn-outline-success');
+                $('#admin').removeClass('btn-outline-success').addClass('btn-success');
+            }
         },
     }
 }
