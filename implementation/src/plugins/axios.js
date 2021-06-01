@@ -11,4 +11,34 @@ const guest = axios.create({
 
 Vue.prototype.$guest = guest;
 
-export { guest };
+const player = axios.create({
+    baseURL: "http://localhost/lingolingo/public/player", 
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest"
+    },
+});
+
+Vue.prototype.$player = player;
+
+const professor = axios.create({
+    baseURL: "http://localhost/lingolingo/public/professor", 
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest"
+    },
+});
+
+Vue.prototype.$professor = professor;
+
+const admin = axios.create({
+    baseURL: "http://localhost/lingolingo/public/admin", 
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest"
+    },
+});
+
+Vue.prototype.$admin = admin;
+
+export { guest, player, professor, admin };

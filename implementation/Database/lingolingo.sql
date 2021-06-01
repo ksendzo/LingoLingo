@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `useraccounts` (
   `FirstName` varchar(45) NOT NULL,
   `LastName` varchar(45) NOT NULL,
   `Username` varchar(45) NOT NULL,
-  `Password` varchar(45) NOT NULL,
+  `Password` varchar(60) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `IdUserType` int(11) NOT NULL,
   `IdStatus` int(11) NOT NULL,
