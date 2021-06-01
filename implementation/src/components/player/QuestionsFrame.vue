@@ -25,18 +25,13 @@
         <input type="submit" name="" value="Report" href="#" style="border-color: yellow; :hover background-color: yellow">  
       </div>
       <div class="offset-6 col-2">
-        <input v-if="this.isActive" type="submit" name="" value="Check" href="#" @click="checkAnswer" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">  
-        <!--button v-if="this.isActive" class="btn btn-success toggle" @click="toggle" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">
-          Check
-        </button-->
-        <router-link to='/player' v-else>
-        <input type="submit" name="" value="Next" href="#">  
-        </router-link>
+        <input type="submit" value="Check" v-show="answered"  v-on:click="btnClick()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"/>  
+        <input type="submit" value="Next" v-show="!answered" v-on:click="btnClick()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true"/>  
       </div>
     </div>
 
   <!--ovo prikazuje tacan odgovor nakon pritiska na submit dugme-->
-    <div class="collapse box" id="collapseExample" style="padding-top:0px;">
+    <div v-show="!answered" class="collapse box" id="collapseExample" style="padding-top:0px;">
       <div class=" card-body">
         {{message}}
       </div>
@@ -74,34 +69,76 @@ export default {
   name:'QuestionFrame',
   data() {
     return {
-      isActive: true,
+      answered: true,
       basic: true, 
       question: '',
       answer: '', 
       myAnswer: '',
-      message: ''
+      message: '', 
+      hearts: 0, 
+      isCorrectAnswer: false
     };
   },
   methods: {
-    toggle() {
-      this.isActive = this.isActive ? false : true;
+    getBtnName() {
+      if(this.answered)
+        return 'Next';
+      else
+        return 'Check';
+    },
+    btnClick(){
+      if(this.answered){
+        this.answered = false;
+        this.checkAnswer();
+      }
+      else {
+        this.nextPage();
+        this.answered = true;
+      }
+    },
+    nextPage() {
+      if(this.isCorrectAnswer)
+        this.getNewQuestion();
+      else 
+        this.$router.replace('/player');
     },
     checkAnswer() {
-      this.toggle();
-      if(this.myAnswer == this.answer)
+      if(this.myAnswer == this.answer){
         this.message = "BRAVO";
-      else 
+        this.isCorrectAnswer = true;
+
+      }
+      else {
         this.message = "Plaky...";
-    }
-  },
-  beforeMount(){
+        this.wrongAnswer();
+      }
+    },
+    wrongAnswer() {
+      this.isCorrectAnswer = false;
+      let gameType = localStorage.getItem('mode');
+      if(gameType == 'Basic')
+        this.removeOneHeart();
+      if(gameType == 'Survival')
+        localStorage.setItem('endGame', 1);
+    }, 
+    removeOneHeart() {
+      this.hearts -= 1;
+      if(this.hearts <= 0) 
+        localStorage.setItem('endGame', 0);      
+    }, 
+    getNewQuestion(){
+      this.correctAnswer = false;
+      this.myAnswer = '';
       let language = localStorage.getItem("language");
-    //  alert(language);
       this.$guest.post('/question', JSON.stringify({'language':language}))
       .then( res => {
         this.question = res.data.QuestionText;
         this.answer = res.data.AnswerText;
       });
+    }
+  },
+  beforeMount(){
+    this.getNewQuestion();
   }
 }
 
