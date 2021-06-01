@@ -13,11 +13,11 @@
                         <input type="password" name="" placeholder="Confirm Password" v-model="ConfirmPassword">
                         
 
-                        <div class="btn-group" role="group" aria-label="Basic example">
+                        <!--div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-outline-success" v-on:click="btnClick('player')" id="player">Player</button>
                             <button type="button" class="btn btn-outline-success" v-on:click="btnClick('professor')" id="professor">Professor</button>
                             <button type="button" class="btn btn-outline-success" v-on:click="btnClick('admin')" id="admin">Admin</button>
-                        </div>
+                        </div-->
 
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-outline-success" v-on:click="btnClick('Player')" id="player">Player</button>

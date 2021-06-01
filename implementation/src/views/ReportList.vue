@@ -15,18 +15,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(entry, i) in questions" :key="entry.name" >
-                <div v-if="(i == 0)">
-                  {{reset()}}
-                </div>
-          
-              <th v-if="entry.flag" scope="row">{{ifInc(entry.flag)}}</th>
-              <td v-if="entry.flag"><img class="languageIcon" :src="'/img/languages/'+entry.language+'.png'"/> &emsp;  {{entry.language}}</td>
-              <td v-if="entry.flag">{{ entry.question }}</td>
-              <td v-if="entry.flag">{{ entry.answer }}</td>
-              <td v-if="entry.flag"> 
-                  <img class="languageIcon" src="@/assets/delete.png"/>
-              </td>    
+              <tr v-for="question in questions" :key="question.IdQuestion" v-bind:id="question.IdQuestion" >
+                <td>
+                  {{question.IdQuestion}}
+                </td>
+                <td><img class="languageIcon" :src="'/img/languages/'+question.language+'.png'"/> &emsp;  {{question.language}}</td>
+                <td>{{ question.question }}</td>
+                <td>{{ question.answer }}</td>
+                <td>
+                    <img class="languageIcon" src="@/assets/delete.png" v-on:click="deleteQuestion(question.IdQuestion)">
+              
+                </td>    
             </tr>
           </tbody>
         </table>
@@ -38,25 +37,28 @@
 
 
 <script>
-import questions from '@/data/questions'
 import NavAdmin from '../components/admin/NavAdmin.vue'
 
 export default {
   components: { NavAdmin },
     data() {
         return {
-            questions: questions,
-            number: 0
+            questions: [
+              {
+                IdQuestion: 1,
+                language: "German",
+                question: "Wie geht's?",
+                answer: "Kurcina"
+              }
+
+            ],
         }
     }, 
     methods: {
-        ifInc: function(flag){
-            if(flag) this.number++;
-            return this.number;
-        },
-        reset: function(){
-          this.number = 0;
-        }
+      deleteQuestion: function(idQuestion) {
+          alert(idQuestion);
+      }          
+      
     }
 }
 </script>

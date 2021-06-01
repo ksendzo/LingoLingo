@@ -76,7 +76,7 @@ export default {
         }
     },
     beforeMount() {
-        this.$guest.post('/languages')
+        this.$player.post('/languages')
         .then(res => {
             this.languages = res.data;
         });
