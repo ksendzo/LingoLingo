@@ -12,11 +12,19 @@
                         <input type="password" name="" placeholder="Password" v-model="Password"> 
                         <input type="password" name="" placeholder="Confirm Password" v-model="ConfirmPassword">
                         
+
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-outline-success" v-on:click="btnClick('player')" id="player">Player</button>
                             <button type="button" class="btn btn-outline-success" v-on:click="btnClick('professor')" id="professor">Professor</button>
                             <button type="button" class="btn btn-outline-success" v-on:click="btnClick('admin')" id="admin">Admin</button>
                         </div>
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-success" v-on:click="btnClick('Player')" id="player">Player</button>
+                            <button type="button" class="btn btn-outline-success" v-on:click="btnClick('Professor')" id="professor">Professor</button>
+                            <button type="button" class="btn btn-outline-success" v-on:click="btnClick('Administrator')" id="admin">Admin</button>
+                        </div>
+
 
                         <input type="submit" name="" value="Register" href="#">
                     </form>
@@ -44,21 +52,41 @@ export default {
     methods: {
         btnClick(elem) {
             this.playerType = elem;
-            if(elem == 'player'){
+            if(elem == 'Player'){
                 $('#player').removeClass('btn-outline-success').addClass('btn-success');
                 $('#professor').removeClass('btn-success').addClass('btn-outline-success');
                 $('#admin').removeClass('btn-success').addClass('btn-outline-success');
             }
-            if(elem == 'professor'){
+            if(elem == 'Professor'){
                 $('#player').removeClass('btn-success').addClass('btn-outline-success');
                 $('#professor').removeClass('btn-outline-success').addClass('btn-success');
                 $('#admin').removeClass('btn-success').addClass('btn-outline-success');
             }
-            if(elem == 'admin'){
+            if(elem == 'Administrator'){
                 $('#player').removeClass('btn-success').addClass('btn-outline-success');
                 $('#professor').removeClass('btn-success').addClass('btn-outline-success');
                 $('#admin').removeClass('btn-outline-success').addClass('btn-success');
             }
+        },
+        register() {
+            let form = {
+                'FirstName': this.FirstName,
+                'LastName': this.LastName,
+                'Username': this.Username,
+                'Email': this.Email,
+                'Password': this.Password,
+                'ConfirmPassword': this.ConfirmPassword,
+                'AccountType': this.playerType
+            }
+
+            this.$guest.post('/register', JSON.stringify(form))
+            .then( res => {
+                    alert(JSON.stringify(res.data.Message));
+            })
+            .catch(err => {
+                this.msg = err.response.data.message.console.error();
+                alert("Unknown error");
+            })
         },
     }
 }

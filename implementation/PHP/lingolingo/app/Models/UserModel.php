@@ -9,9 +9,9 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    public function CheckUserExists($username, $password)
+    public function GetUser($username)
     {
-        if( !isset($username) || !isset($password) )
+        if( !isset($username))
         {
             return false;
         }
@@ -19,16 +19,49 @@ class UserModel extends Model
         $builder = $this->db->table('useraccounts');
         $builder->select("*");
         $builder->where('Username', $username);
-        $builder->where('Password', $password);
         
         $result = $builder->get()->getResultObject();
         if(!empty($result))
         {
-            return $result[0]->IdUser;
+            return $result[0];
         }
         else
         {
-            return 0;
+            return null;
+        }
+    }
+    
+    public function CheckUsernameTaken($username)
+    {
+        $builder = $this->db->table('useraccounts');
+        $builder->select("*");
+        $builder->where('username', $username);
+        
+        $result = $builder->get()->getResultObject();
+        if(!empty($result))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public function CheckEmailTaken($email)
+    {
+        $builder = $this->db->table('useraccounts');
+        $builder->select("*");
+        $builder->where('Email', $email);
+        
+        $result = $builder->get()->getResultObject();
+        if(!empty($result))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     
@@ -45,6 +78,22 @@ class UserModel extends Model
         
         $result = $builder->get()->getResultObject();
         return $result[0];
+    }
+    
+    public function RegisterNewUser($firstName, $lastName, $username, $password, $email, $accountTypeId, $accountStatusId)
+    {
+        $newUser = [
+            'FirstName' => $firstName,
+            'LastName'  => $lastName,
+            'Username'  => $username,
+            'Password'  => $password,
+            'Email'     => $email,
+            'IdUserType'=> $accountTypeId,
+            'IdStatus'  => $accountStatusId
+        ];
+
+        $query = $this->db->table('useraccounts');
+        $query->insert($newUser);
     }
     
     public function dogadjaj($id)

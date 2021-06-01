@@ -89,4 +89,10 @@ class BaseController extends Controller
             $this->response->setJSON($data);
             $this->response->send();
         }
+        
+        protected function encryptPassword($password)
+        {
+            $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
+            return $encryptedPassword;
+        }
 }
