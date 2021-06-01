@@ -32,7 +32,7 @@ const professor = axios.create({
 Vue.prototype.$professor = professor;
 
 const admin = axios.create({
-    baseURL: "http://localhost/lingolingo/public/admin", 
+    baseURL: "http://localhost/lingolingo/public/administrator", 
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "X-Requested-With": "XMLHttpRequest"

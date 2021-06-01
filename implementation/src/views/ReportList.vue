@@ -19,9 +19,9 @@
                 <td>
                   {{question.IdQuestion}}
                 </td>
-                <td><img class="languageIcon" :src="'/img/languages/'+question.language+'.png'"/> &emsp;  {{question.language}}</td>
-                <td>{{ question.question }}</td>
-                <td>{{ question.answer }}</td>
+                <td><img class="languageIcon" :src="'/img/languages/'+question.Language+'.png'"/> &emsp;  {{question.Language}}</td>
+                <td>{{ question.Question }}</td>
+                <td>{{ question.Answer }}</td>
                 <td>
                     <img class="languageIcon" src="@/assets/delete.png" v-on:click="deleteQuestion(question.IdQuestion)">
               
@@ -43,20 +43,33 @@ export default {
   components: { NavAdmin },
     data() {
         return {
-            questions: [
-              {
-                IdQuestion: 1,
-                language: "German",
-                question: "Wie geht's?",
-                answer: "Kurcina"
-              }
-
-            ],
+            questions: []
         }
     }, 
+    beforeMount() {
+      this.$admin.post('/getFlaggedQuestions')
+      .then( res => {
+        this.questions = res.data;
+          })
+      .catch(err => {
+              this.msg = err.response.data.message.console.error();
+              alert("Unknown error");
+          })
+    },
     methods: {
       deleteQuestion: function(idQuestion) {
-          alert(idQuestion);
+        let form = {
+          'IdQuestion': idQuestion
+        }
+
+        this.$admin.post('/deleteQuestion', JSON.stringify(form))
+        .then( () => {
+          alert("Question deleted");
+        })
+        .catch(err => {
+          this.msg = err.response.data.message.console.error();
+          alert("Unknown error");
+        })
       }          
       
     }
