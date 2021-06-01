@@ -55,7 +55,7 @@ export default {
         // this.userFirstNameLastName = localStorage.UserFullName;
         // this.results = this.user.results;
         this.username = localStorage.getItem('Username');
-        this.$guest.post('/userInfo', JSON.stringify({"username": this.username}))
+        this.$player.post('/userInfo', JSON.stringify({"username": this.username}))
         .then(res => {
             // alert(res.data);
 

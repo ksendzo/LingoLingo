@@ -1,10 +1,21 @@
 <template>
   <div class="box">
-    <div class="row" v-if="basic">
+    <div class="row" v-if="this.gameMode == 'Basic'">
       <div class="offset-10 col-2" >
-          <img src="@/assets/pinkHeart.png" width="40" height="40">
-          <img src="@/assets/redHeart.png" width="40" height="40">
-          <img src="@/assets/redHeart.png" width="40" height="40">
+          <img v-if="fullHeart(3)" src="@/assets/redHeart.png" width="40" height="40">
+          <img v-else src="@/assets/pinkHeart.png" width="40" height="40">
+          <img v-if="fullHeart(2)" src="@/assets/redHeart.png" width="40" height="40">
+          <img v-else src="@/assets/pinkHeart.png" width="40" height="40">
+          <img v-if="fullHeart(1)" src="@/assets/redHeart.png" width="40" height="40">
+          <img v-else src="@/assets/pinkHeart.png" width="40" height="40">
+          <!-- <img src="@/assets/redHeart.png" width="40" height="40">
+          <img src="@/assets/redHeart.png" width="40" height="40"> -->
+      </div>
+    </div>
+
+    <div class="row" v-if="this.gameMode == 'Learning'">
+      <div class="offset-1 col-2 red" >
+        <input type="submit" name="" value="Finish" href="#" style="border-color: red;">  
       </div>
     </div>
     
@@ -21,8 +32,8 @@
     </div>
 
     <div class="row">
-      <div class="offset-1 col-2" >
-        <input type="submit" name="" value="Report" href="#" style="border-color: yellow; :hover background-color: yellow">  
+      <div class="offset-1 col-2 yellow" >
+        <input type="submit" name="" value="Report" href="#" style="border-color: yellow; ">  
       </div>
       <div class="offset-6 col-2">
         <input type="submit" value="Check" v-show="answered"  v-on:click="btnClick()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"/>  
@@ -42,6 +53,15 @@
 </template>
 
 <style>
+
+.box .red input[type="submit"]:hover  {
+  background: red;
+}
+
+.box .yellow input[type="submit"]:hover  {
+  background: yellow;
+}
+
 
 .box .card-body {
   color: whitesmoke;
@@ -76,16 +96,12 @@ export default {
       myAnswer: '',
       message: '', 
       hearts: 0, 
-      isCorrectAnswer: false
+      isCorrectAnswer: false, 
+      gameMode: '',
+      endGame: false
     };
   },
   methods: {
-    getBtnName() {
-      if(this.answered)
-        return 'Next';
-      else
-        return 'Check';
-    },
     btnClick(){
       if(this.answered){
         this.answered = false;
@@ -97,7 +113,7 @@ export default {
       }
     },
     nextPage() {
-      if(this.isCorrectAnswer)
+      if(!this.endGame)
         this.getNewQuestion();
       else 
         this.$router.replace('/player');
@@ -106,7 +122,6 @@ export default {
       if(this.myAnswer == this.answer){
         this.message = "BRAVO";
         this.isCorrectAnswer = true;
-
       }
       else {
         this.message = "Plaky...";
@@ -119,26 +134,37 @@ export default {
       if(gameType == 'Basic')
         this.removeOneHeart();
       if(gameType == 'Survival')
-        localStorage.setItem('endGame', 1);
+        this.endGame = true; 
     }, 
     removeOneHeart() {
       this.hearts -= 1;
       if(this.hearts <= 0) 
-        localStorage.setItem('endGame', 0);      
+        this.endGame = true;    
     }, 
     getNewQuestion(){
       this.correctAnswer = false;
       this.myAnswer = '';
       let language = localStorage.getItem("language");
-      this.$guest.post('/question', JSON.stringify({'language':language}))
+      this.$player.post('/question', JSON.stringify({'language':language}))
       .then( res => {
         this.question = res.data.QuestionText;
         this.answer = res.data.AnswerText;
       });
+    }, 
+    fullHeart(num) {
+      if(this.hearts >= num )
+        return true;
+        return false;
+
     }
   },
   beforeMount(){
     this.getNewQuestion();
+    this.gameMode = localStorage.getItem('mode');
+    if(this.gameMode == 'Basic'){
+      this.hearts = 3;
+      this.basic = true;
+    }
   }
 }
 
