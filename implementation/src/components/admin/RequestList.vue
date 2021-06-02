@@ -15,10 +15,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(entry, i) in professors" :key="i">
-                <th scope="row">{{ ++i }}</th>
-                <td>{{ entry.name }}</td>
-                <td>{{ entry.mail }}</td>
+                <tr v-for="professor in professors" :key="professor.IdUser" v-bind:id="professor.IdUser">
+                <td>{{ professor.IdUser }}</td>
+                <td>{{ professor.FirstName }}</td>
+                <td>{{ professor.Email }}</td>
                 <td> 
                     <img class="languageIcon" src="@/assets/false.png"/>
                     <img class="languageIcon" src="@/assets/decline.png"/>
@@ -42,10 +42,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(entry, i) in admins" :key="i">
-                <th scope="row">{{ ++i }}</th>
-                <td>{{ entry.name }}</td>
-                <td>{{ entry.mail }}</td>
+                <tr v-for="admin in admins" :key="admin.IdUser" v-bind:id="admin.IdUser">
+                <td>{{ admin.IdUser }}</td>
+                <td>{{ admin.FirstName }}</td>
+                <td>{{ admin.Email }}</td>
                 <td> 
                     <img class="languageIcon" src="@/assets/false.png"/>
                     <img class="languageIcon" src="@/assets/decline.png"/>
@@ -70,21 +70,24 @@
 export default {
     data(){
         return{
-            professors: [
-                {name: "Petar", mail: "losop79250@gmail.com"},
-                {name: "Mirko", mail: "sdgsfsef@gmail.com"},
-                {name: "Stefan", mail: "wgefhdfhd@gmail.com"},
-                {name: "Marko", mail: "rjhegsdf@gmail.com"},
-                {name: "Nikola", mail: "asfdczd@gmail.com"}
-            ],
-            admins: [
-                {name: "Maja", mail: "sdfew2sas@gmail.com"},
-                {name: "Jana", mail: "iopkrscv@gmail.com"},
-                {name: "Kristina", mail: "nhjllm.dffg@gmail.com"}
-            ]
-
+            professors: [],
+            admins: []
         }
     }, 
-    name: 'RequestList'
+    name: 'RequestList',
+    beforeMount() {
+        alert("Nesto");
+        this.$admin.post('/GetUsersPendingApproval')
+      .then( res => {
+          this.professors = res.data.PendingProfessors;
+          })
+      .catch(err => {
+              this.msg = err.response.data.message.console.error();
+              alert("Unknown error");
+          })
+    },
+    methods: {
+
+    }
 }
 </script>

@@ -17,13 +17,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(entry, i) in professors" :key="i">
-                <th scope="row">{{ ++i }}</th>
-                <td>{{ entry.name }}</td>
-                <td>{{ entry.mail }}</td>
+                <tr v-for="professor in professors" :key="professor.IdUser" v-bind:id="professor.IdUser">
+                <td>{{ professor.IdUser }}</td>
+                <td>{{ professor.FirstName }}</td>
+                <td>{{ professor.Email }}</td>
                 <td> 
-                    <img class="languageIcon" src="@/assets/false.png"/>
-                    <img class="languageIcon" src="@/assets/decline.png"/>
+                    <img class="languageIcon" src="@/assets/false.png" v-on:click="approveAccount(professor.IdUser)"/>
+                    <img class="languageIcon" src="@/assets/decline.png" v-on:click="deleteAccount(professor.IdUser)"/>
                 </td>
                 </tr>
             </tbody>
@@ -44,13 +44,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(entry, i) in admins" :key="i">
-                <th scope="row">{{ ++i }}</th>
-                <td>{{ entry.name }}</td>
-                <td>{{ entry.mail }}</td>
+                <tr v-for="admin in admins" :key="admin.IdUser" v-bind:id="admin.IdUser">
+                <td>{{ admin.IdUser }}</td>
+                <td>{{ admin.FirstName }}</td>
+                <td>{{ admin.Email }}</td>
                 <td> 
-                    <img class="languageIcon" src="@/assets/false.png"/>
-                    <img class="languageIcon" src="@/assets/decline.png"/>
+                    <img class="languageIcon" src="@/assets/false.png" v-on:click="approveAccount(admin.IdUser)"/>
+                    <img class="languageIcon" src="@/assets/decline.png" v-on:click="deleteAccount(admin.IdUser)"/>
                 </td>
                 </tr>
             </tbody>
@@ -78,21 +78,53 @@ export default {
     },
     data(){
         return{
-            professors: [
-                {name: "Petar", mail: "losop79250@gmail.com"},
-                {name: "Mirko", mail: "sdgsfsef@gmail.com"},
-                {name: "Stefan", mail: "wgefhdfhd@gmail.com"},
-                {name: "Marko", mail: "rjhegsdf@gmail.com"},
-                {name: "Nikola", mail: "asfdczd@gmail.com"}
-            ],
-            admins: [
-                {name: "Maja", mail: "sdfew2sas@gmail.com"},
-                {name: "Jana", mail: "iopkrscv@gmail.com"},
-                {name: "Kristina", mail: "nhjllm.dffg@gmail.com"}
-            ]
-
+            professors: [],
+            admins: []
         }
     }, 
-    name: 'RequesPage'
+    beforeMount() {
+        this.$admin.post('/GetUsersPendingApproval')
+      .then( res => {
+          this.professors = res.data.PendingProfessors;
+          this.admins = res.data.PendingAdmins;
+          })
+      .catch(err => {
+              this.msg = err.response.data.message.console.error();
+              alert("Unknown error");
+          })
+    },
+    methods: {
+        approveAccount: function(idAccount) {
+            let form = {
+            'IdUser': idAccount
+            }
+
+            this.$admin.post('/ApproveAccount', JSON.stringify(form))
+            .then( () => {
+                alert("Account approved");
+                this.$router.go(0);
+            })
+            .catch(err => {
+                this.msg = err.response.data.message.console.error();
+                alert("Unknown error");
+        })
+      },
+        deleteAccount: function(idAccount) {
+            let form = {
+                'IdUser': idAccount
+            }
+
+            this.$admin.post('/DeleteAccount', JSON.stringify(form))
+            .then( () => {
+                alert("Account deleted");
+                this.$router.go(0);
+            })
+            .catch(err => {
+                this.msg = err.response.data.message.console.error();
+                alert("Unknown error");
+            })
+        },      
+    },
+    name: 'RequestPage'
 }
 </script>

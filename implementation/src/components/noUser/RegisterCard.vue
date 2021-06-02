@@ -27,6 +27,8 @@
 
 
                         <input type="submit" name="" value="Register" href="#">
+                        <p v-if="this.error" class="errorMsg"> {{errorMessage}} </p> 
+                        <p v-if="this.success" class="successMsg"> {{errorMessage}} </p> 
                     </form>
                 </div>
             </div>
@@ -46,7 +48,10 @@ export default {
             Email: '',
             Password: '',
             ConfirmPassword: '', 
-            playerType: ''
+            playerType: '',
+            error: false,
+            success: false,
+            errorMessage: ''
         };
     },
     methods: {
@@ -81,12 +86,33 @@ export default {
 
             this.$guest.post('/register', JSON.stringify(form))
             .then( res => {
-                    alert(JSON.stringify(res.data.Message));
+                    this.errorMessage = res.data.Message;
+                    if(res.data.RegisterSuccessful)
+                    {
+                        this.success = true;
+                        this.error = false;
+                        this.FirstName = '';
+                        this.LastName = '';
+                        this.Username = '';
+                        this.Email = '';
+                        this.Password = '';
+                        this.ConfirmPassword = '';
+                        this.playerType = '';
+                        $('#player').removeClass('btn-success').addClass('btn-outline-success');
+                        $('#professor').removeClass('btn-success').addClass('btn-outline-success');
+                        $('#admin').removeClass('btn-success').addClass('btn-outline-success');
+                    }
+                    else {
+                        this.error = true;
+                        this.success = false;
+                    }
             })
             .catch(err => {
                 this.msg = err.response.data.message.console.error();
-                alert("Unknown error");
+                this.errorMessage = "Unknown error";
+                this.error = true;
             })
+
         },
     }
 }
