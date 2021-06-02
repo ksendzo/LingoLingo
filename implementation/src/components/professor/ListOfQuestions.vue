@@ -24,7 +24,17 @@
                   </div></div>
                 
               </td>
-              <td style="horizontal-align:middle; margin:0px;">
+              <td v-if="editing == i" style="horizontal-align:middle; margin:0px;">
+                <div class="row">
+                  <div class="col-12 underline">
+                    <input type="text" :value="entry.question" :v-model="question"/>
+                  </div></div>
+                  <div class="row">
+                  <div class="col-12">
+                    <input type="text" :value="entry.answer"/>
+                  </div></div>
+              </td>
+              <td v-else style="horizontal-align:middle; margin:0px;">
                 <div class="row">
                   <div class="col-12 underline">
                 {{ entry.question }}
@@ -34,7 +44,8 @@
                   {{ entry.answer }}
                   </div></div>
               </td>
-              <td style="vertical-align: middle;"><img class="languageIcon" src="@/assets/pen.png"/></td>
+              <td style="vertical-align: middle;" v-if="editing != i" v-on:click="edit(i)" ><img class="languageIcon" src="@/assets/pen.png"/></td>
+              <td style="vertical-align: middle;"  v-if="editing == i" v-on:click="save(i)" ><img class="languageIcon" src="@/assets/save.png"/></td>
               <td style="vertical-align: middle;"><img class="languageIcon" src="@/assets/delete.png"/></td>
               <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/'+entry.flag+'.png'"/></td>
             </tr>
@@ -67,34 +78,10 @@ export default {
   name: "ListOfQuestions",
   data() {
       return {
-        // users: [
-        //     {
-        //         language: "German", 
-        //         question: "This is a question.", 
-        //         answer: "Das ist eine Frage.",
-        //         flag: false
-        //     },
-        //     {
-        //         language: "German", 
-        //         question: "I don't like styling web pages.", 
-        //         answer: "Ich mag es nicht, Webseiten zu stylen.",
-        //         flag: false
-        //     },
-        //     {
-        //       language: "German",
-        //       question: "But I can sure make it work!", 
-        //       answer: "Aber ich kann es sicher schaffen!",
-        //       flag: false
-        //     },
-        //     {
-        //         language: "Spanish", 
-        //         question: "Hi, how are you?", 
-        //         answer: "¿Hola, cómo estás?",
-        //         flag: true
-            
-        //     }
-        // ],
-        questions: []
+        editing: -1,
+     
+        questions: [],
+        question: ''
       }
   },
   beforeMount() {
@@ -102,11 +89,21 @@ export default {
   },
   methods: {
     getQuestions: function() {
-      this.$guest.post('/questions')
+      this.$professor.post('/questions')
       .then(res => {
-        this.questions = res.data;      
+        this.questions = res.data.slice().reverse();      
     });
     
+    },
+    edit: function(i) {
+      this.editing = i;
+      this.question = this.questions[i].question;
+    },
+    save(i) {
+      alert(this.question);
+      this.editing -= i - 1;
+      this.editing = -1;
+      // UPDATE QUESTION ZA MILOSA
     }
   }
 };

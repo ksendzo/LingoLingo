@@ -7,20 +7,32 @@
                         <p class="text-muted"> Please enter your login and password!</p>
                         <input type="text" name="" placeholder="Username" v-model="username"> 
                         <input type="password" name="" placeholder="Password" v-model="password"> 
-                        <a class="forgot text-muted" href="#">Forgot password?</a>
-                        <input type="submit" name="" value="Login" href="#">                    
+                        <input type="submit" name="" value="Login" href="#">   
+                        <p v-if="this.error" class="errorMsg"> {{errorMessage}} </p>                 
                     </form>
                 </div>
             </div>
         </div>
 </template>
 
+<style>
+    .errorMsg {
+        color: rgb(226, 27, 27);
+    }
+    .successMsg {
+        color: green;
+    }
+</style>
+
+
 <script>
 export default {
     data() {
         return {
             username: '',
-            password: ''
+            password: '',
+            error: false,
+            errorMessage: ''
         };
     },
     beforeMount(){
@@ -59,17 +71,20 @@ export default {
                     }
                     else
                     {
-                        alert("Error! Incorrect account type");
+                        this.errorMessage = "Error! Incorrect account type";
+                        this.error = true;
                     }
                 }
                 else
                 {
-                    alert(JSON.stringify(res.data.Message));
+                    this.errorMessage = res.data.Message;
+                    this.error = true;
                 }
             })
             .catch(err => {
                 this.msg = err.response.data.message.console.error();
-                alert("Unknown error");
+                this.errorMessage = "Unknown error";
+                this.error = true;
             })
             //axios
 
