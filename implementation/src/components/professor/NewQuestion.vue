@@ -10,7 +10,7 @@
                         </div>
                         <div class=" col-3">
                         <select style="width:100%;" v-model="selectedLanguage">
-                                 <option v-for="language in languages" :value="language" :key="language.LanguageName">{{language.LanguageName}}</option>
+                                 <option v-for="language in languages" :value='language' :key="language.LanguageName">{{language.LanguageName}}</option>
                         </select>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ export default {
     },
     beforeMount(){
         this.professor = localStorage.getItem('Username');
-        this.$guest.post('/languages')
+        this.$professor.post('/languages')
         .then(res => {
             this.languages = res.data;
         });
@@ -80,12 +80,16 @@ export default {
                 'professor': this.professor
             }
 
-            this.$guest.put('/newQuestion', JSON.stringify(form));
+            this.$professor.put('/newQuestion', JSON.stringify(form))
+            .then( () => {
+                this.$router.go(0);
 
-            this.question = '';
-            this.answer = '';
-            this.$parent.callList();//$ref.listOfQuestions.getQuestions();
-            //this.$parent.$refs.list.getQuestions();
+                this.question = '';
+                this.answer = '';
+                this.$parent.callList();
+            })
+
+            
         }
     }
 }
