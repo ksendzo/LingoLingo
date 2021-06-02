@@ -24,7 +24,7 @@
                         <tr v-for="result in results" :key="result.language">
                             
                                 <td><img :src='"img/languages/" + result.language + ".png"' width="40" height="30" :alt='result.language'/></td>
-                                <td>{{result.basic_score + result.survival_score}}</td>
+                                <td>{{result.score}}</td>
                                 <td>{{result.basic_score}}</td>
                                 <td>{{result.survival_score}}</td>
                             </tr>
@@ -64,6 +64,8 @@ export default {
 
 
         });
+
+
 
     }
 

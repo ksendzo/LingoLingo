@@ -115,8 +115,10 @@ export default {
     nextPage() {
       if(!this.endGame)
         this.getNewQuestion();
-      else 
+      else {
         this.$router.replace('/player');
+        this.saveScore();
+      }
     },
     checkAnswer() {
       if(this.myAnswer == this.answer){
@@ -156,6 +158,9 @@ export default {
         return true;
         return false;
 
+    },
+    saveScore() {
+      // TREBA DA SACUVA REZULTAT
     }
   },
   beforeMount(){

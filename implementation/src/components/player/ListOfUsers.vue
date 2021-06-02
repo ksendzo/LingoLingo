@@ -2,23 +2,23 @@
   <div class="row">
     <div class=" offset-1 col-md-10">
       <div class="centerContent">
-        <table class="box table text-white" style="border-top:none;"> 
+        <table class="box table text-white pointer" style="border-top:none;"> 
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Score</th>
-              <th scope="col">Basic Score</th>
-              <th scope="col">Survival Score</th>
+              <th v-on:click="sortByName()" scope="col">Name</th>
+              <th v-on:click="sortByScore()" scope="col">Score</th>
+              <th v-on:click="sortByBasic()" scope="col">Basic Score</th>
+              <th v-on:click="sortBySurvival()" scope="col">Survival Score</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(entry, i) in users" :key="i">
               <th scope="row">{{ ++i }}</th>
-              <td>{{ entry.name }}</td>
-              <td>{{ getScore(entry.name) }}</td>
-              <td>{{ getBasicScore(entry.name) }}</td>
-              <td>{{ getSurvivalScore(entry.name) }}</td>
+              <td>{{ entry.player }}</td>
+              <td>{{ sum(entry.basic_score , entry.survival_score) }}</td>
+              <td>{{ entry.basic_score }}</td>
+              <td>{{ entry.survival_score }}</td>
               
             </tr>
           </tbody>
@@ -28,45 +28,79 @@
   </div>
 </template>
 
+<style> 
+
+.pointer th {
+  cursor: pointer;
+}
+
+</style>
+
 
 <script>
-import users from '@/data/users.js'
+// import users from '@/data/users.js'
 
 export default {
   name: "Leaderboard",
   data() {
       return {
-        users: users
+        users: [], 
+        up: true
       }
   }, 
   methods: {
-    getScore: function(user) {
-      let res = 0;
-        this.users.find(obj => {
-          return obj.name === user
-          }).results.forEach(element => {
-          res += element.basic_score + element.survival_score;
-        });
-        return res;
-    }, 
-    getBasicScore: function(user){
-      let res = 0;
-        this.users.find(obj => {
-          return obj.name === user
-          }).results.forEach(element => {
-          res += element.basic_score;
-        });
-        return res;
-    }, 
-    getSurvivalScore: function(user){
-      let res = 0;
-        this.users.find(obj => {
-          return obj.name === user
-          }).results.forEach(element => {
-          res += element.survival_score;
-        });
-        return res;
+    sum(a, b) {
+      return parseInt(a) + parseInt(b);
+    },
+    getUserList() {
+      this.$player.post('/userList')
+      .then(res => {
+        this.users = res.data;
+      });
+    },
+    sortByName() {
+      if(this.up){
+        this.users.sort((a, b) => (a.player > b.player) ? 1 : -1);
+        this.up = false;
+      }
+      else {
+        this.users.sort((a, b) => (a.player > b.player) ? -1 : 1);
+        this.up = true;
+      }
+    },
+    sortByScore() {
+      if(this.up){
+        this.users.sort((a, b) => (this.sum(a.basic_score, a.survival_score) > this.sum(b.basic_score, b.survival_score)) ? 1 : -1);
+        this.up = false;
+      }
+      else {
+        this.users.sort((a, b) => (this.sum(a.basic_score, a.survival_score) > this.sum(b.basic_score, b.survival_score)) ? -1 : 1);
+        this.up = true;
+      }
+    },
+    sortByBasic() {
+      if(this.up){
+        this.users.sort((a, b) => (a.basic_score > b.basic_score) ? 1 : -1);
+        this.up = false;
+      }
+      else {
+        this.users.sort((a, b) => (a.basic_score > b.basic_score) ? -1 : 1);
+        this.up = true;
+      }
+    },
+    sortBySurvival() {
+      if(this.up){
+        this.users.sort((a, b) => (a.survival_score > b.survival_score) ? 1 : -1);
+        this.up = false;
+      }
+      else {
+        this.users.sort((a, b) => (a.survival_score > b.survival_score) ? -1 : 1);
+        this.up = true;
+      }
     }
+  },
+  beforeMount() {
+    this.getUserList();
   }
 };
 </script>
