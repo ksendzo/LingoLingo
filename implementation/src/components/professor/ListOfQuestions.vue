@@ -27,11 +27,11 @@
               <td v-if="editing == i" style="horizontal-align:middle; margin:0px;">
                 <div class="row">
                   <div class="col-12 underline">
-                    <input type="text" :value="entry.question" :v-model="question"/>
+                    <input type="text" :value="entry.question" :v-model="question" :id="'editingQ' + i"/>
                   </div></div>
                   <div class="row">
                   <div class="col-12">
-                    <input type="text" :value="entry.answer"/>
+                    <input type="text" :value="entry.answer" :id="'editingA' + i"/>
                   </div></div>
               </td>
               <td v-else style="horizontal-align:middle; margin:0px;">
@@ -73,6 +73,7 @@
 </style>
 
 <script>
+import $ from 'jquery'
 
 export default {
   name: "ListOfQuestions",
@@ -100,7 +101,10 @@ export default {
       this.question = this.questions[i].question;
     },
     save(i) {
-      alert(this.question);
+      let question = $('#editingQ' + i).val();
+      let answer   = $('#editingA' + i).val();
+      alert(question);
+      alert(answer);
       this.editing -= i - 1;
       this.editing = -1;
       // UPDATE QUESTION ZA MILOSA
