@@ -106,13 +106,19 @@ export default {
       this.question = this.questions[i].question;
     },
     save(i) {
-      let question = $('#editingQ' + i).val();
-      let answer   = $('#editingA' + i).val();
-      alert(question);
-      alert(answer);
-      this.editing -= i - 1;
+      let form = {
+                'modifiedQuestion': $('#editingQ' + i).val(),
+                'modifiedAnswer': $('#editingA' + i).val(),
+                'modifiedQuestionId': this.questions[i].IdQuestion
+            }
+
       this.editing = -1;
-      // UPDATE QUESTION ZA MILOSA
+
+      this.$professor.post('/ModifyQuestion', form)
+      .then( () => {
+          this.questions[i].question = form.modifiedQuestion;
+          this.questions[i].answer = form.modifiedAnswer;
+      })
     }
   }
 };
