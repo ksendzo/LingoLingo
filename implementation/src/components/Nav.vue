@@ -6,10 +6,7 @@
             </router-link>
         </div>
         <!--div class="col-1 " id="poz"-->
-        <button class="logout"> <!--type="submit" name="" value="Log out " href="#"-->
-            
-            <img src="@/assets/logout.png" width="30" height="30"/>
-        </button>
+        
     </div>
 </template>
 

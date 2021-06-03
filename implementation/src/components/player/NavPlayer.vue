@@ -7,7 +7,7 @@
             </router-link>
         </div>
         <!--div class="col-1 " id="poz"-->
-        <button class="logout"> <!--type="submit" name="" value="Log out " href="#"-->
+        <button class="logout" v-on:click="logout()"> <!--type="submit" name="" value="Log out " href="#"-->
             
             <img src="@/assets/logout.png" width="30" height="30"/>
         </button>
@@ -45,6 +45,13 @@
 
 <script>
 export default {
-    name: 'NavPlayer'
+    name: 'NavPlayer',
+    methods: {
+        logout(){
+            localStorage.setItem("Username", '');
+            localStorage.setItem("UserTypeId", 0);
+            this.$router.replace('/');
+        }
+    }
 }
 </script>
