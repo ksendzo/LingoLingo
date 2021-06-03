@@ -22,8 +22,8 @@
                 <td>{{ professor.FirstName }}</td>
                 <td>{{ professor.Email }}</td>
                 <td> 
-                    <img class="languageIcon" src="@/assets/false.png" v-on:click="approveAccount(professor.IdUser)"/>
-                    <img class="languageIcon" src="@/assets/decline.png" v-on:click="deleteAccount(professor.IdUser)"/>
+                    <img class="languageIcon pointerImg" src="@/assets/false.png" v-on:click="approveAccount(professor.IdUser)"/>
+                    <img class="languageIcon pointerImg" src="@/assets/decline.png" v-on:click="deleteAccount(professor.IdUser)"/>
                 </td>
                 </tr>
             </tbody>
@@ -49,8 +49,8 @@
                 <td>{{ admin.FirstName }}</td>
                 <td>{{ admin.Email }}</td>
                 <td> 
-                    <img class="languageIcon" src="@/assets/false.png" v-on:click="approveAccount(admin.IdUser)"/>
-                    <img class="languageIcon" src="@/assets/decline.png" v-on:click="deleteAccount(admin.IdUser)"/>
+                    <img class="languageIcon pointerImg" src="@/assets/false.png" v-on:click="approveAccount(admin.IdUser)"/>
+                    <img class="languageIcon pointerImg" src="@/assets/decline.png" v-on:click="deleteAccount(admin.IdUser)"/>
                 </td>
                 </tr>
             </tbody>

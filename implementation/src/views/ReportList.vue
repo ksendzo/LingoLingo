@@ -23,7 +23,7 @@
                 <td>{{ question.Question }}</td>
                 <td>{{ question.Answer }}</td>
                 <td>
-                    <img class="languageIcon" src="@/assets/delete.png" v-on:click="deleteQuestion(question.IdQuestion)">
+                    <img class="languageIcon pointerImg" src="@/assets/delete.png" v-on:click="deleteQuestion(question.IdQuestion)">
               
                 </td>    
             </tr>

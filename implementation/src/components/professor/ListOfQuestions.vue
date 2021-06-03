@@ -44,9 +44,9 @@
                   {{ entry.answer }}
                   </div></div>
               </td>
-              <td style="vertical-align: middle;" v-if="editing != i" v-on:click="edit(i)" ><img class="languageIcon" src="@/assets/pen.png"/></td>
-              <td style="vertical-align: middle;"  v-if="editing == i" v-on:click="save(i)" ><img class="languageIcon" src="@/assets/save.png"/></td>
-              <td style="vertical-align: middle;"><img class="languageIcon" src="@/assets/delete.png"/></td>
+              <td style="vertical-align: middle;" v-if="editing != i" v-on:click="edit(i)" ><img class="languageIcon pointerImg" src="@/assets/pen.png"/></td>
+              <td style="vertical-align: middle;"  v-if="editing == i" v-on:click="save(i)" ><img class="languageIcon pointerImg" src="@/assets/save.png"/></td>
+              <td style="vertical-align: middle;"><img class="languageIcon pointerImg" src="@/assets/delete.png"/></td>
               <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/'+entry.flag+'.png'"/></td>
             </tr>
           </tbody>
@@ -58,6 +58,11 @@
 </template>
 
 <style>
+
+.pointerImg{
+  cursor: pointer;
+}
+
 .languageIcon{
     height: 20px;
     widows: 20px;
