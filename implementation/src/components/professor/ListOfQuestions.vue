@@ -46,8 +46,8 @@
               </td>
               <td style="vertical-align: middle;" v-if="editing != i" v-on:click="edit(i)" ><img class="languageIcon pointerImg" src="@/assets/pen.png"/></td>
               <td style="vertical-align: middle;"  v-if="editing == i" v-on:click="save(i)" ><img class="languageIcon pointerImg" src="@/assets/save.png"/></td>
-              <td style="vertical-align: middle;"><img class="languageIcon pointerImg" src="@/assets/delete.png"/></td>
-              <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/'+entry.flag+'.png'"/></td>
+              <td style="vertical-align: middle;" v-on:click="deleteQuestion(i)" ><img class="languageIcon pointerImg" src="@/assets/delete.png"/></td>
+              <td style="vertical-align: middle;" v-on:click="modifyFlag(i)" ><img class="languageIcon pointerImg" :src="'/img/'+entry.flag+'.png'"/></td>
             </tr>
           </tbody>
         </table>
@@ -107,10 +107,10 @@ export default {
     },
     save(i) {
       let form = {
-                'modifiedQuestion': $('#editingQ' + i).val(),
-                'modifiedAnswer': $('#editingA' + i).val(),
-                'modifiedQuestionId': this.questions[i].IdQuestion
-            }
+          'modifiedQuestion': $('#editingQ' + i).val(),
+          'modifiedAnswer': $('#editingA' + i).val(),
+          'modifiedQuestionId': this.questions[i].IdQuestion
+      }
 
       this.editing = -1;
 
@@ -118,6 +118,26 @@ export default {
       .then( () => {
           this.questions[i].question = form.modifiedQuestion;
           this.questions[i].answer = form.modifiedAnswer;
+      })
+    },
+    deleteQuestion(i) {
+      let form = {
+        'IdQuestion': this.questions[i].IdQuestion
+      }
+
+      this.$professor.post('/DeleteQuestion', form)
+      .then( () => {
+          this.questions.splice(i,1);
+      })
+    },
+    modifyFlag(i) {
+      let form = {
+        'IdQuestion': this.questions[i].IdQuestion
+      }
+
+      this.$professor.post('/ModifyFlag', form)
+      .then( res => {
+          this.questions[i].flag = res.data;
       })
     }
   }
