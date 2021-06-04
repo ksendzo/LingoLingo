@@ -80,11 +80,15 @@ export default {
         .then(res => {
             this.languages = res.data;
         });
-        if(localStorage.getItem('language') == null)
-            localStorage.setItem('language', 'Italian');
+        // if(localStorage.getItem('language') == null)
+            localStorage.setItem('language', '');
     },
     mounted() {
-        this.myFunction(localStorage.getItem('language'));
+        // this.myFunction(localStorage.getItem('language'));
+        let lang = localStorage.getItem('language');
+        if(lang != ''){
+            this.graphicSelect(lang);
+        }
     }
     
 }

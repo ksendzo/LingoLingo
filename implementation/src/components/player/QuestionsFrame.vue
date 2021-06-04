@@ -33,11 +33,17 @@
 
     <div class="row">
       <div class="offset-1 col-2 yellow" >
-        <input type="submit" name="" value="Report" href="#" style="border-color: yellow; ">  
+        <input type="submit" name="" value="Report" v-on:click="report()" href="#" style="border-color: yellow; ">  
       </div>
       <div class="offset-6 col-2">
         <input type="submit" value="Check" v-show="answered"  v-on:click="btnClick()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"/>  
         <input type="submit" value="Next" v-show="!answered" v-on:click="btnClick()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true"/>  
+      </div>
+    </div>
+
+    <div class="row">
+      <div v-if="reported" class="offset-1 col-2" style="color: yellow">
+        Question Reported
       </div>
     </div>
 
@@ -93,12 +99,15 @@ export default {
       basic: true, 
       question: '',
       answer: '', 
+      Qid: 0,
       myAnswer: '',
       message: '', 
       hearts: 0, 
       isCorrectAnswer: false, 
       gameMode: '',
-      endGame: false
+      endGame: false, 
+      score: 0,
+      reported: false
     };
   },
   methods: {
@@ -124,6 +133,7 @@ export default {
       if(this.myAnswer == this.answer){
         this.message = "BRAVO";
         this.isCorrectAnswer = true;
+        this.score++;
       }
       else {
         this.message = "Plaky...";
@@ -146,11 +156,13 @@ export default {
     getNewQuestion(){
       this.correctAnswer = false;
       this.myAnswer = '';
+      this.reported = false;
       let language = localStorage.getItem("language");
       this.$player.post('/question', JSON.stringify({'language':language}))
       .then( res => {
         this.question = res.data.QuestionText;
         this.answer = res.data.AnswerText;
+        this.Qid = res.data.IdQuestion;
       });
     }, 
     fullHeart(num) {
@@ -161,11 +173,16 @@ export default {
     },
     saveScore() {
       // TREBA DA SACUVA REZULTAT
+    }, 
+    report() {
+      this.$player.post('/report', JSON.stringify({'idQ': this.Qid}))
+      this.reported = true;
     }
   },
   beforeMount(){
     this.getNewQuestion();
     this.gameMode = localStorage.getItem('mode');
+    this.score = 0;
     if(this.gameMode == 'Basic'){
       this.hearts = 3;
       this.basic = true;

@@ -50,6 +50,7 @@ export default {
         logout(){
             localStorage.setItem("Username", '');
             localStorage.setItem("UserTypeId", 0);
+            localStorage.setItem("language", '');
             this.$router.replace('/');
         }
     }

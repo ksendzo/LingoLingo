@@ -48,8 +48,12 @@ export default {
     },
     methods: {
         igra: function(mode) {
-            localStorage.setItem("mode", mode);
-            this.$router.replace('/question');
+            if(localStorage.getItem('language') == '')
+                alert('choose a language');
+            else {
+                localStorage.setItem("mode", mode);
+                this.$router.replace('/question');
+            }
         }
     },
 
