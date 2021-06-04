@@ -90,15 +90,16 @@ export default {
   data() {
     return {
       answered: true,
-      basic: true, 
       question: '',
       answer: '', 
       myAnswer: '',
       message: '', 
       hearts: 0, 
-      isCorrectAnswer: false, 
+      //isCorrectAnswer: false, 
       gameMode: '',
-      endGame: false
+      endGame: false,
+      currentQuestionBasic: 0,
+      numCorrectAnswers: 0
     };
   },
   methods: {
@@ -113,17 +114,20 @@ export default {
       }
     },
     nextPage() {
-      if(!this.endGame)
-        this.getNewQuestion();
-      else {
+      if(this.endGame || (this.currentQuestionBasic >= 10 && localStorage.mode == 'Basic'))
+       {
         this.$router.replace('/player');
         this.saveScore();
       }
+      else 
+        this.getNewQuestion();
+
     },
     checkAnswer() {
       if(this.myAnswer == this.answer){
         this.message = "BRAVO";
-        this.isCorrectAnswer = true;
+        this.numCorrectAnswers++;
+        //this.isCorrectAnswer = true;
       }
       else {
         this.message = "Plaky...";
@@ -131,7 +135,7 @@ export default {
       }
     },
     wrongAnswer() {
-      this.isCorrectAnswer = false;
+      //this.isCorrectAnswer = false;
       let gameType = localStorage.getItem('mode');
       if(gameType == 'Basic')
         this.removeOneHeart();
@@ -151,6 +155,7 @@ export default {
       .then( res => {
         this.question = res.data.QuestionText;
         this.answer = res.data.AnswerText;
+        this.currentQuestionBasic++;
       });
     }, 
     fullHeart(num) {
@@ -161,6 +166,17 @@ export default {
     },
     saveScore() {
       // TREBA DA SACUVA REZULTAT
+      let form = {
+        'gameMode': localStorage.mode,
+        'numberOfCorrectAnswers': this.numCorrectAnswers,
+        'language': localStorage.language,
+        'username': localStorage.Username
+      }
+
+      this.$player.post('/SaveScore', form)
+      .then( () => {
+        
+      })
     }
   },
   beforeMount(){

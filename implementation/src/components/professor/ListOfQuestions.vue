@@ -97,7 +97,7 @@ export default {
     getQuestions: function() {
       this.$professor.post('/questions')
       .then(res => {
-        this.questions = res.data.slice().reverse();      
+        this.questions = res.data;//((a, b) => (a.IdQuestion > b.IdQuestion) ? -1 : 1);      
     });
     
     },

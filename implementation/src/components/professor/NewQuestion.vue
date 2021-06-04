@@ -82,7 +82,7 @@ export default {
 
             this.$professor.put('/newQuestion', JSON.stringify(form))
             .then( () => {
-                this.$router.go(0);
+                this.$router.replace('/professor');
 
                 this.question = '';
                 this.answer = '';
