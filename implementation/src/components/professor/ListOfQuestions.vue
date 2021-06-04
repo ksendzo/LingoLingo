@@ -46,8 +46,8 @@
               </td>
               <td style="vertical-align: middle;" v-if="editing != i" v-on:click="edit(i)" ><img class="languageIcon pointerImg" src="@/assets/pen.png"/></td>
               <td style="vertical-align: middle;"  v-if="editing == i" v-on:click="save(i)" ><img class="languageIcon pointerImg" src="@/assets/save.png"/></td>
-              <td style="vertical-align: middle;"><img class="languageIcon pointerImg" src="@/assets/delete.png"/></td>
-              <td style="vertical-align: middle;"><img class="languageIcon" :src="'/img/'+entry.flag+'.png'"/></td>
+              <td style="vertical-align: middle;" v-on:click="deleteQuestion(i)" ><img class="languageIcon pointerImg" src="@/assets/delete.png"/></td>
+              <td style="vertical-align: middle;" v-on:click="modifyFlag(i)" ><img class="languageIcon pointerImg" :src="'/img/'+entry.flag+'.png'"/></td>
             </tr>
           </tbody>
         </table>
@@ -97,7 +97,7 @@ export default {
     getQuestions: function() {
       this.$professor.post('/questions')
       .then(res => {
-        this.questions = res.data.slice().reverse();      
+        this.questions = res.data;//((a, b) => (a.IdQuestion > b.IdQuestion) ? -1 : 1);      
     });
     
     },
@@ -106,13 +106,39 @@ export default {
       this.question = this.questions[i].question;
     },
     save(i) {
-      let question = $('#editingQ' + i).val();
-      let answer   = $('#editingA' + i).val();
-      alert(question);
-      alert(answer);
-      this.editing -= i - 1;
+      let form = {
+          'modifiedQuestion': $('#editingQ' + i).val(),
+          'modifiedAnswer': $('#editingA' + i).val(),
+          'modifiedQuestionId': this.questions[i].IdQuestion
+      }
+
       this.editing = -1;
-      // UPDATE QUESTION ZA MILOSA
+
+      this.$professor.post('/ModifyQuestion', form)
+      .then( () => {
+          this.questions[i].question = form.modifiedQuestion;
+          this.questions[i].answer = form.modifiedAnswer;
+      })
+    },
+    deleteQuestion(i) {
+      let form = {
+        'IdQuestion': this.questions[i].IdQuestion
+      }
+
+      this.$professor.post('/DeleteQuestion', form)
+      .then( () => {
+          this.questions.splice(i,1);
+      })
+    },
+    modifyFlag(i) {
+      let form = {
+        'IdQuestion': this.questions[i].IdQuestion
+      }
+
+      this.$professor.post('/ModifyFlag', form)
+      .then( res => {
+          this.questions[i].flag = res.data;
+      })
     }
   }
 };
