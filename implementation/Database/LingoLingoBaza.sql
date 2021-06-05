@@ -106,14 +106,14 @@ CREATE TABLE `playedgames` (
   `IdUser` int(11) NOT NULL,
   `IdGameType` int(11) NOT NULL,
   `IdLanguage` int(11) NOT NULL,
-  `PlayDate` date NOT NULL,
+  `PlayDate` varchar(20) NOT NULL,
   `PointsScored` int(11) NOT NULL,
   PRIMARY KEY (`IdGame`),
   UNIQUE KEY `IdGame_UNIQUE` (`IdGame`),
   KEY `FK_IdUser_idx` (`IdUser`),
   KEY `FK_IdGameType_idx` (`IdGameType`),
   KEY `FK_IdLanguage_idx` (`IdLanguage`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +122,7 @@ CREATE TABLE `playedgames` (
 
 LOCK TABLES `playedgames` WRITE;
 /*!40000 ALTER TABLE `playedgames` DISABLE KEYS */;
+INSERT INTO `playedgames` VALUES (2,4,2,1,'05-06-2021 12:26:35',90),(3,4,1,6,'05-06-2021 12:33:10',100);
 /*!40000 ALTER TABLE `playedgames` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,14 +137,14 @@ CREATE TABLE `questions` (
   `IdQuestion` int(11) NOT NULL AUTO_INCREMENT,
   `IdLanguage` int(11) NOT NULL,
   `IdAuthor` int(11) NOT NULL,
-  `QuestionText` varchar(300) NOT NULL,
-  `AnswerText` varchar(300) NOT NULL,
+  `QuestionText` varchar(300) CHARACTER SET latin1 NOT NULL,
+  `AnswerText` varchar(300) CHARACTER SET latin1 NOT NULL,
   `IsFlagged` int(11) NOT NULL,
   PRIMARY KEY (`IdQuestion`),
   UNIQUE KEY `IdQuestion_UNIQUE` (`IdQuestion`),
   KEY `FK_IdLanguage_idx` (`IdLanguage`),
   KEY `FK_IdAuthor_idx` (`IdAuthor`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +153,7 @@ CREATE TABLE `questions` (
 
 LOCK TABLES `questions` WRITE;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
-INSERT INTO `questions` VALUES (1,1,5,'Ich bin Milos','I am Milos',0),(3,1,5,'Das ist toll','This is cool',0),(7,6,5,'Mi smo studenti','We are students',0),(5,1,5,'Ich libe dich','I love you',0),(6,3,5,'Tu sei bella','You are beautiful',0),(8,6,5,'Ovo radi','This works',0);
+INSERT INTO `questions` VALUES (13,6,17,'Kako si?','How are you?',0),(25,6,25,'Dobar dan','Good afternoon',0),(23,1,11,'Frage','Antworte',0),(18,3,17,'Torna a casa','Come back home',0),(19,6,19,'Kako si proveo današnji dan?','How did you spend your day?',0);
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +179,7 @@ CREATE TABLE `useraccounts` (
   UNIQUE KEY `Email_UNIQUE` (`Email`),
   KEY `FK_IdUserType_idx` (`IdUserType`),
   KEY `FK_IdStatus_idx` (`IdStatus`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +188,7 @@ CREATE TABLE `useraccounts` (
 
 LOCK TABLES `useraccounts` WRITE;
 /*!40000 ALTER TABLE `useraccounts` DISABLE KEYS */;
-INSERT INTO `useraccounts` VALUES (2,'Ksenija','Bulatovic','ksendzo','$2y$10$R62gtGMaI20.vGw8HXlOKOGDYtVGs/ETHy6yc8.dIr1iIVawgKWQW','ksendzo@lingolingo.com',3,1),(1,'Milos','Jovanovic','milosj194','$2y$10$1AQo7OUeFjQoVZwu/wbJWOcX2cYsLsBZZmsbX7sFCK0/9BXHDBGtm','milos@lingolingo.com',3,1),(3,'Milos','Cirkovic','cirko','$2y$10$Ys1wP36xjaBvW/CTxFZvJOpjzxii9.y8IHxlJjqDVIIw6XCXEm71i','cirko@lingolingo.com',2,1),(4,'Player','Test','player','$2y$10$CDr6t04H4c0i/FI5B4Y.hO1Su6x1jkgPrqMShjCEBiJuuUNIJuTsm','playertest@test.com',1,1),(5,'Professor','Test','professor','$2y$10$wQG7M9XCmXsE74J3ONDMnuMRcPlByXgsvmbhCoVwDG1Li9gd9oipO','professortest@test.com',2,2),(6,'Administrator','Test','administrator','$2y$10$jXkBii31a493htLCYkSseO9lgIZziQB5ylGG9.hJzuClgErz07NyC','administratortest@test.com',3,2);
+INSERT INTO `useraccounts` VALUES (2,'Ksenija','Bulatovic','ksendzo','$2y$10$R62gtGMaI20.vGw8HXlOKOGDYtVGs/ETHy6yc8.dIr1iIVawgKWQW','ksendzo@lingolingo.com',3,1),(1,'Milos','Jovanovic','milosj194','$2y$10$1AQo7OUeFjQoVZwu/wbJWOcX2cYsLsBZZmsbX7sFCK0/9BXHDBGtm','milos@lingolingo.com',3,1),(3,'Milos','Cirkovic','cirko','$2y$10$Ys1wP36xjaBvW/CTxFZvJOpjzxii9.y8IHxlJjqDVIIw6XCXEm71i','cirko@lingolingo.com',2,1),(4,'Player','Test','player','$2y$10$CDr6t04H4c0i/FI5B4Y.hO1Su6x1jkgPrqMShjCEBiJuuUNIJuTsm','playertest@test.com',1,1),(5,'Professor','Test','professor','$2y$10$wQG7M9XCmXsE74J3ONDMnuMRcPlByXgsvmbhCoVwDG1Li9gd9oipO','professortest@test.com',2,1),(7,'Stefan','Jovanovic','stefanc++','$2y$10$w2uQ6UHNo7EOSp5HaieN4.fwuoODFkIF1cp1JWNqhEMpvalJzULcm','stefan@rc.com',1,1),(9,'Nalog za Approve','Test','naZaApprove','$2y$10$w1Zrxssd3FAsH6TAcHGP0u7ZoQzgQg8yZWynXtbkPgHX6ilSww9Qu','mejl@mejl.com',2,1),(8,'Irina','Bulatovic','irinab','$2y$10$6sXMDzVmi25GQzvtWSauI.y/6GZO6yz2b4.YqyUCpGHBq9aEcVu2m','irina@rc.com',2,1),(11,'Lazar','Davidovic','zola','$2y$10$XKuuDkdpxnZtvZYSlDBUN.VpVEFJhAbMCC5fin4En6SiJrxI.QBCO','zola@rc.com',2,1),(12,'Milisav','Jovanovic','miki_rc','$2y$10$xglP/7xk2.bomOXD0qgfheKTG0hsyAs008wBF6N/qOBQaHS0Z.kqW','milisav@rc.com',3,1),(13,'Adrijana','Jovanovic','adri','$2y$10$fWgqJG6mMqRrhEDd8IfjbuKcsTF2mHPBS5LDaZvncm/JHaExnP482','adri@gmail.com',1,1),(14,'Suzana','Jovanovic','suzi','$2y$10$8ZF2UAoSSresA2GUf./mxOM1YXDw9EomHoxlKZ4TP7F7uarpHU4ja','suzi@g.com',3,1),(15,'Drazen','Draskovic','drasko','$2y$10$LG2REcoAgtrS4vCsD/zXAeyZloSqQ.D2o71.51eBAyurm3BEZJhYa','drasko@etf.rs',2,2),(16,'Hajde','Da','li','$2y$10$Maz.9W7htLbU.2CxqyOlF.5VAJ924QvDwcakYuwH2GiMhC12qrg62','ra@dis.com',2,2),(17,'Luka','Simic','simke98','$2y$10$pRUrVFPpak2QyaeGhGLnbuqo2zT.qt0H620vbhohS2c9g5/mdZoGm','luka@hotmail.com',2,1),(18,'Aleksandar','Zdravkovic','pajgla','$2y$10$1QWqvopJrU/fjG95u2eVDOOwYK32bKDghLZRGl3sqP.BrCper.Sje','pajgla00@gmail.com',1,1),(19,'Stanko','Madzar','stanko','$2y$10$kCSwVsfQWJcNWVklTUTNju/AqpVeGhSEY4Qeu21Mhc./.WQaw6DgK','stanko@ubisoft.com',2,1),(20,'Nikola','Blagojevic','nikola2107','$2y$10$sM/rJUEYiIlp2P2cssVg0ef.sK3HAKm4ojtO5Z3eSPlHZQhPNhJK.','nikola2107@hotmail.com',1,1),(21,'Miki','Jovanovic','milisavrc','$2y$10$97kSLrfm0/NgAZy.KA2.juIcf70h5KpeyR4dF39Tn97I0piXvK3P2','gfsgf',3,1),(23,'Miroslav','Gavrilov','mika','$2y$10$uydiisYNXzWz5/9KlbYaXuWCOzU0/pOmn5hhNJozi6YWll/0A.ORq','mika@mika.com',2,1),(24,'Radoslav','Puhalovic','radoslav','$2y$10$3iUu9QebVXMqeZM3SHDLj.C52R4RMkG3B5bPTDeJqLkYMTCYBspbW','radoslav@gmail.com',1,1),(25,'Ivana','Puhalovic','ivana','$2y$10$OOMhHgv5YdHx1X1vrMw78.IX9JnnHR43qVHX3ag/kkxx9KGJamAmK','ivana@hotmail.com',2,1),(26,'Jovana','Puhalovic','jovanap','$2y$10$mxJj.myYa8BD8I4S9jXu7Ow9Q4llt21xoIKnMhElcKRzWJ8BWJ0pq','jovanap@hotmail.com',2,1);
 /*!40000 ALTER TABLE `useraccounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-01 19:43:31
+-- Dump completed on 2021-06-05 19:52:56
