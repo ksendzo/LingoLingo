@@ -35,9 +35,7 @@ export default {
             errorMessage: ''
         };
     },
-    beforeMount(){
-            localStorage.clear();
-    },
+    
     methods: {
         login()
         {   

@@ -83,6 +83,15 @@ export default {
         }
     }, 
     beforeMount() {
+        if(!localStorage.Username)
+        {
+          this.$router.push("/");
+        }
+        else if(localStorage.UserTypeId == 1)
+          this.$router.replace('/player');
+        else if(localStorage.UserTypeId == 2)
+          this.$router.replace('/professor');
+
         this.$admin.post('/GetUsersPendingApproval')
       .then( res => {
           this.professors = res.data.PendingProfessors;

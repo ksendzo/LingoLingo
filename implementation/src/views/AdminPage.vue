@@ -36,10 +36,10 @@ export default {
         {
           this.$router.push("/");
         }
-        else if(localStorage.UserTypeId != 3)
-        {          
-          this.$router.go(-1);
-        }
+        else if(localStorage.UserTypeId == 1)
+          this.$router.replace('/player');
+        else if(localStorage.UserTypeId == 2)
+          this.$router.replace('/professor');
   },
 }
 </script>

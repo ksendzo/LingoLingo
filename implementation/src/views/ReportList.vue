@@ -47,6 +47,15 @@ export default {
         }
     }, 
     beforeMount() {
+        if(!localStorage.Username)
+        {
+          this.$router.push("/");
+        }
+        else if(localStorage.UserTypeId == 1)
+          this.$router.replace('/player');
+        else if(localStorage.UserTypeId == 2)
+          this.$router.replace('/professor');
+
       this.$admin.post('/getFlaggedQuestions')
       .then( res => {
         this.questions = res.data;
@@ -64,7 +73,7 @@ export default {
 
         this.$admin.post('/deleteQuestion', JSON.stringify(form))
         .then( () => {
-          alert("Question deleted");
+          this.$router.go(0);
         })
         .catch(err => {
           this.msg = err.response.data.message.console.error();
