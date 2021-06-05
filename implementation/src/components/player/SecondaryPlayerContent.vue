@@ -10,7 +10,7 @@
     <div class="row">
             <div class="offset-1 col-11 box rangList">
                 <!--div class="centerContent "-->
-                    <h2> {{user.name}}</h2>
+                    <h2> {{userFullName}}</h2>
                     <br/>
                     <table class="table text-light">
                         <thead>
@@ -47,14 +47,16 @@ export default {
         return {
             user: {}, 
             results:[], 
-            username: ''
+            username: '',
+            userFullName: ''
         }
     }, 
-    beforeMount:function(){
-        // this.user = users[1];
+    beforeMount(){
+        //this.user = users[1];
         // this.userFirstNameLastName = localStorage.UserFullName;
         // this.results = this.user.results;
         this.username = localStorage.getItem('Username');
+        this.userFullName = localStorage.UserFullName;
         this.$player.post('/userInfo', JSON.stringify({"username": this.username}))
         .then(res => {
             // alert(res.data);
