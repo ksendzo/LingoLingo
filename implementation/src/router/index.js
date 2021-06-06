@@ -1,14 +1,11 @@
 import Vue from 'vue'
-import About from '../views/About'
 import VueRouter from 'vue-router'
 import AdminPage from '../views/AdminPage.vue'
-import PlayerIndex from '../views/PlayerIndex.vue'
+import PlayerPage from '../views/PlayerPage.vue'
 import NoPlayerPage from '../views/NoPlayerPage.vue'
 import ProfessorPage from '../views/ProfessorPage.vue'
 import QuestionPage from '../views/QuestionPage.vue'
 import RangList from '../components/player/RangList.vue'
-import Login from '@/views/Login.vue'
-import Register from '@/views/Register.vue'
 import ReportList from '@/views/ReportList.vue'
 import RequestPage from '@/views/RequestPage.vue'
 
@@ -20,14 +17,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/player',
-    name: 'PlayerIndex',
-    component: PlayerIndex
+    path: '/',
+    name: 'NoPlayer',
+    component: NoPlayerPage
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About
+    path: '/player',
+    name: 'PlayerPage',
+    component: PlayerPage
   },
   {
     path: '/professor',
@@ -40,11 +37,6 @@ const routes = [
     component: AdminPage
   },
   {
-    path: '/',
-    name: 'NoPlayer',
-    component: NoPlayerPage
-  },
-  {
     path: '/question',
     name: 'Question', 
     component: QuestionPage
@@ -54,16 +46,6 @@ const routes = [
     name: 'RangList',
     component: RangList
   },
-  {
-    path: '/Login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/Register',
-    name: 'Register',
-    component: Register
-  }, 
   {
     path: '/admin/ReportList',
     name: 'ReportList',

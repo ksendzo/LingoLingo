@@ -6,7 +6,7 @@
             <ChooseLanguage/>
         </div>
         <div class = " col-7">
-            <MainPlayerContent/>
+            <GameModeList/>
         </div>
         <div class = "col-3">
             <SecondaryPlayerContent/>
@@ -17,15 +17,15 @@
 
 
 <script>
-import MainPlayerContent from '../components/player/MainPlayerContent'
+import GameModeList from '../components/player/GameModeList'
 import SecondaryPlayerContent from '../components/player/SecondaryPlayerContent'
 import NavPlayer from '@/components/player/NavPlayer'
 import ChooseLanguage from '@/components/ChooseLanguage.vue'
 
 export default {
-    name:'PlayerIndex',
+    name:'PlayerPage',
     components:{
-        MainPlayerContent, 
+        GameModeList, 
         SecondaryPlayerContent, 
         NavPlayer, 
         ChooseLanguage
