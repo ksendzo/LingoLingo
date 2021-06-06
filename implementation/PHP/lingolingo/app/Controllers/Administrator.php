@@ -1,16 +1,25 @@
 <?php
+/**
+* Miloš Jovanović 2013/0669
+**/
 namespace App\Controllers;
-
 use App\Models\UserModel;
 use App\Models\AccountStatusModel;
 use App\Models\AccountTypeModel;
 use App\Models\LanguageModel;
 use App\Models\QuestionModel;
 
- 
+/**
+* Administrator – klasa za administratorovu stranicu
+*
+* @version 1.0
+*/
 
 class Administrator extends BaseController
 {
+    /**
+    * Dohvatanje svih flag-ovanih pitanja
+    */
     public function getFlaggedQuestions()
     {
         $this->receiveAJAX();
@@ -39,6 +48,9 @@ class Administrator extends BaseController
         $this->sendAJAX(json_encode($flaggedQuestions));
     }
     
+    /**
+    * Brisanje prosleđenog pitanja
+    */
     public function deleteQuestion()
     {
         $this->receiveAJAX();
@@ -49,6 +61,9 @@ class Administrator extends BaseController
         $questionModel->DeleteQuestion($idQuestionToBeDeleted);
     }
     
+    /**
+    * Dohvatanje svih Usera koji čekaju na odobrenje
+    */
     public function GetUsersPendingApproval()
     {
         // separate professors and admins
@@ -102,6 +117,9 @@ class Administrator extends BaseController
         $this->sendAJAX(json_encode($result));
     }
     
+    /**
+    * Odobrenje profila sa čekanja
+    */
     public function ApproveAccount()
     {
         $this->receiveAJAX();
@@ -114,6 +132,9 @@ class Administrator extends BaseController
         $userModel->ChangeAccountStatus($idUser, $idStatusApproved);
     }
     
+    /**
+    * Brisanje naloga sa čekanja
+    */
     public function DeleteAccount()
     {
         $this->receiveAJAX();

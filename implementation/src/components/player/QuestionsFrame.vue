@@ -1,3 +1,7 @@
+<!--  Ksenija Bulatovic 2019/0730
+      Miloš Ćirković 2017/0333
+      Miloš Jovanović 2013/0669 -->
+
 <template>
   <div class="box">
     <div class="row" v-if="this.gameMode == 'Basic'">
@@ -15,7 +19,9 @@
 
     <div class="row" v-if="this.gameMode == 'Learning'">
       <div class="offset-1 col-2 red" >
+        <router-link to="/player"> 
         <input type="submit" name="" value="Finish" href="#" style="border-color: red;">  
+        </router-link>
       </div>
     </div>
     
@@ -137,13 +143,13 @@ export default {
     },
     checkAnswer() {
       if(this.myAnswer == this.answer || this.myAnswer == "__DEBUG__"){
-        this.message = "BRAVO";
+        this.message = "BRAVO!";
         this.isCorrectAnswer = true;
         this.score++;
         this.numCorrectAnswers++;
       }
       else {
-        this.message = "Plaky...";
+        this.message = "❗ " +  this.answer + " ❗";
         this.wrongAnswer();
       }
     },

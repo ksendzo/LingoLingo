@@ -1,8 +1,18 @@
 <?php 
+/**
+ * Miloš Jovanović 2013/0669
+ * Ksenija Bulatović 2019/0730
+**/
+
 namespace App\Models;
 
 use CodeIgniter\Model;
 
+/**
+* QuestionModel – klasa za komunikaciju sa tabelom 'questions' iz baze
+*
+* @version 1.0
+*/
 class QuestionModel extends Model
 {
     public function NewQuestion($languageId, $authorId, $question, $answer)
@@ -57,7 +67,6 @@ class QuestionModel extends Model
         $builder = $this->db->table('questions');
         $builder->where('IdQuestion', $id);
         $builder->delete();
-//        $builder->delete(array('IdQuestions' => $id));
     }
     
     public function ModifyQuestion($id, $question, $answer)
