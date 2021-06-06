@@ -1,3 +1,9 @@
+/*  
+  Ksenija Bulatovic 2019/0730
+  Miloš Ćirković 2017/0333
+  Miloš Jovanović 2013/0669 
+*/
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'

@@ -1,3 +1,7 @@
+<!--  Ksenija Bulatovic 2019/0730
+      Miloš Ćirković 2017/0333
+      Miloš Jovanović 2013/0669 -->
+      
 <template>
         <div class="row">
             <div class="offset-1 col-11">

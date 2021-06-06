@@ -1,3 +1,7 @@
+/*  
+  Miloš Jovanović 2013/0669 
+*/
+
 import Vue from 'vue'
 import axios from 'axios'
 
