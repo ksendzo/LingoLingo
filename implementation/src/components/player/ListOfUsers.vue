@@ -60,6 +60,7 @@ export default {
       this.$player.post('/userList')
       .then(res => {
         this.users = res.data;
+        this.up = false;
         this.sortByScore();
       });
     },
