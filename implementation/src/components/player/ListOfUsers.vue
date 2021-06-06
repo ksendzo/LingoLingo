@@ -60,7 +60,7 @@ export default {
       this.$player.post('/userList')
       .then(res => {
         this.users = res.data;
-        this.up = false;
+        this.up =
         this.sortByScore();
       });
     },
@@ -86,21 +86,21 @@ export default {
     },
     sortByBasic() {
       if(this.up){
-        this.users.sort((a, b) => (a.basic_score > b.basic_score) ? 1 : -1);
+        this.users.sort((a, b) => (parseInt(a.basic_score) > parseInt(b.basic_score)) ? 1 : -1);
         this.up = false;
       }
       else {
-        this.users.sort((a, b) => (a.basic_score > b.basic_score) ? -1 : 1);
+        this.users.sort((a, b) => (parseInt(a.basic_score) > parseInt(b.basic_score)) ? -1 : 1);
         this.up = true;
       }
     },
     sortBySurvival() {
       if(this.up){
-        this.users.sort((a, b) => (a.survival_score > b.survival_score) ? 1 : -1);
+        this.users.sort((a, b) => (parseInt(a.survival_score) > parseInt(b.survival_score)) ? 1 : -1);
         this.up = false;
       }
       else {
-        this.users.sort((a, b) => (a.survival_score > b.survival_score) ? -1 : 1);
+        this.users.sort((a, b) => (parseInt(a.survival_score) > parseInt(b.survival_score)) ? -1 : 1);
         this.up = true;
       }
     }
