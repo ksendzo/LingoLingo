@@ -3,7 +3,7 @@
     <div class="row ">
         <div class="offset-1 col-11 box rangList">
             <router-link to="/player/rangList">
-                <h2>Rang List</h2>
+                <h2>High Score List</h2>
             </router-link>
         </div>
     </div>
