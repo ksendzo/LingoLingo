@@ -2251,7 +2251,7 @@
 											"font": "Arial;13;0",
 											"left": 295,
 											"top": 364.5,
-											"width": 188.46435546875,
+											"width": 188,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF54bHAqpxbbDg="
@@ -3526,7 +3526,7 @@
 											"font": "Arial;13;0",
 											"left": 472,
 											"top": 204.5,
-											"width": 192.05078125,
+											"width": 191,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF54bMHjqEjqn0="
@@ -3994,7 +3994,7 @@
 											"font": "Arial;13;0",
 											"left": 299,
 											"top": 268.5,
-											"width": 168.259765625,
+											"width": 167,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF54bFpjJsePbk="
@@ -4193,7 +4193,7 @@
 											"font": "Arial;13;0",
 											"left": 566,
 											"top": 284.5,
-											"width": 142.9326171875,
+											"width": 142,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF54bXWiaZkZkU="
@@ -4852,7 +4852,7 @@
 											"font": "Arial;13;0",
 											"left": 249,
 											"top": 476.5,
-											"width": 159.525390625,
+											"width": 159,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF54b6SYq6+wI8="
@@ -5051,7 +5051,7 @@
 											"font": "Arial;13;0",
 											"left": 226,
 											"top": 524.5,
-											"width": 202.1435546875,
+											"width": 201,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF54b8lprHA/Gw="
@@ -6248,7 +6248,7 @@
 											"font": "Arial;13;0",
 											"left": 263,
 											"top": 668.5,
-											"width": 187.01708984375,
+											"width": 186,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF54cKbmLnaFqs="
@@ -23033,7 +23033,7 @@
 																"$ref": "AAAAAAF54ktfQe0nPc4="
 															},
 															"edgePosition": 1,
-															"text": "5 : Neisoravno korisnicko ime"
+															"text": "5 : Neispravno korisnicko ime"
 														},
 														{
 															"_type": "EdgeLabelView",
@@ -24122,7 +24122,7 @@
 											"_parent": {
 												"$ref": "AAAAAAF54ktfQezqfxw="
 											},
-											"name": "Neisoravno korisnicko ime",
+											"name": "Neispravno korisnicko ime",
 											"source": {
 												"$ref": "AAAAAAF54ktfQu1m0+c="
 											},
