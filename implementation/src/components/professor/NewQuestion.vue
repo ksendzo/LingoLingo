@@ -17,6 +17,7 @@
                     <input type="text" name="" placeholder="Question" v-model="question"> 
                     <input type="text" name="" placeholder="Answer" v-model="answer"> 
                     <input type="submit" name="" value="Submit" href="#">                    
+                    <p v-if="this.error" class="errorMsg"> {{errorMessage}} </p>                   
                 </form>
             </div>
         </div>
@@ -61,7 +62,9 @@ export default {
             selectedLanguage: '',
             question: '',
             answer: '',
-            professor: ''
+            professor: '',
+            error: false,
+            errorMessage: 'Please fill all the fields.'
         };
     },
     beforeMount(){
@@ -73,23 +76,36 @@ export default {
     },
     methods: {
         newQuestion() {
-            let form = {
-                'language': this.selectedLanguage.LanguageName,
-                'question': this.question,
-                'answer': this.answer,
-                'professor': this.professor
+            if(this.selectedLanguage == '')
+            {
+                this.errorMessage = 'Please select the language.'
+                this.error = true;
             }
+            else if(this.question == '' || this.answer == '')
+            {
+                this.errorMessage = 'Please fill all the fields.'
+                this.error = true;
+            }
+            else 
+            {
+                this.error = false;
+                let form = {
+                    'language': this.selectedLanguage.LanguageName,
+                    'question': this.question,
+                    'answer': this.answer,
+                    'professor': this.professor
+                }
 
-            this.$professor.put('/newQuestion', JSON.stringify(form))
-            .then( () => {
-                this.$router.replace('/professor');
+                this.$professor.put('/newQuestion', JSON.stringify(form))
+                .then( () => {
+                    this.$router.replace('/professor');
 
-                this.question = '';
-                this.answer = '';
-                this.$parent.callList();
-            })
+                    this.question = '';
+                    this.answer = '';
+                    this.$parent.callList();
+                })
 
-            
+            }
         }
     }
 }
