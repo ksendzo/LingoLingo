@@ -21892,7 +21892,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF54ktfQezobqw="
 							},
-							"name": "Collaboration1",
+							"name": "C1 Prijava korisnika",
 							"ownedElements": [
 								{
 									"_type": "UMLInteraction",
