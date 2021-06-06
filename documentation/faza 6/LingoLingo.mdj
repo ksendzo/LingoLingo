@@ -8299,7 +8299,7 @@
 													"font": "Arial;13;0",
 													"left": 29,
 													"top": 189,
-													"width": 83.10986328125,
+													"width": 72.54736328125,
 													"height": 13,
 													"text": "«server page»"
 												},
@@ -8312,7 +8312,7 @@
 													"font": "Arial;13;1",
 													"left": 29,
 													"top": 204,
-													"width": 83.10986328125,
+													"width": 72.54736328125,
 													"height": 13,
 													"text": "UserModel"
 												},
@@ -8434,7 +8434,7 @@
 									"containerChangeable": true,
 									"left": 24,
 									"top": 184,
-									"width": 93.10986328125,
+									"width": 82.54736328125,
 									"height": 38,
 									"autoResize": true,
 									"nameCompartment": {
@@ -8484,7 +8484,7 @@
 													"font": "Arial;13;0",
 													"left": 173,
 													"top": 285,
-													"width": 93.88818359375,
+													"width": 85.2236328125,
 													"height": 13,
 													"text": "«server page»"
 												},
@@ -8497,7 +8497,7 @@
 													"font": "Arial;13;1",
 													"left": 173,
 													"top": 300,
-													"width": 93.88818359375,
+													"width": 85.2236328125,
 													"height": 13,
 													"text": "QuestionModel"
 												},
@@ -8619,7 +8619,7 @@
 									"containerChangeable": true,
 									"left": 168,
 									"top": 280,
-									"width": 103.88818359375,
+									"width": 95.2236328125,
 									"height": 38,
 									"autoResize": true,
 									"nameCompartment": {
@@ -8669,7 +8669,7 @@
 													"font": "Arial;13;0",
 													"left": 85,
 													"top": 237,
-													"width": 122.8271484375,
+													"width": 111.20458984375,
 													"height": 13,
 													"text": "«server page»"
 												},
@@ -8682,7 +8682,7 @@
 													"font": "Arial;13;1",
 													"left": 85,
 													"top": 252,
-													"width": 122.8271484375,
+													"width": 111.20458984375,
 													"height": 13,
 													"text": "PlayedGamesModel"
 												},
@@ -8804,7 +8804,7 @@
 									"containerChangeable": true,
 									"left": 80,
 									"top": 232,
-									"width": 132.8271484375,
+									"width": 121.20458984375,
 									"height": 38,
 									"autoResize": true,
 									"nameCompartment": {
@@ -8854,7 +8854,7 @@
 													"font": "Arial;13;0",
 													"left": 261,
 													"top": 333,
-													"width": 103.060546875,
+													"width": 95.798828125,
 													"height": 13,
 													"text": "«server page»"
 												},
@@ -8867,7 +8867,7 @@
 													"font": "Arial;13;1",
 													"left": 261,
 													"top": 348,
-													"width": 103.060546875,
+													"width": 95.798828125,
 													"height": 13,
 													"text": "GameTypeModel"
 												},
@@ -8989,7 +8989,7 @@
 									"containerChangeable": true,
 									"left": 256,
 									"top": 328,
-									"width": 113.060546875,
+									"width": 105.798828125,
 									"height": 38,
 									"autoResize": true,
 									"nameCompartment": {
@@ -10205,7 +10205,7 @@
 									"tail": {
 										"$ref": "AAAAAAF54doPz/wGfBM="
 									},
-									"points": "368:341;664:341",
+									"points": "361:341;664:341",
 									"showVisibility": true,
 									"nameLabel": {
 										"$ref": "AAAAAAF54eSwGv4j91A="
@@ -10298,7 +10298,7 @@
 									"tail": {
 										"$ref": "AAAAAAF54doFbPuLHps="
 									},
-									"points": "271:304;664:304",
+									"points": "262:304;664:304",
 									"showVisibility": true,
 									"nameLabel": {
 										"$ref": "AAAAAAF54eTNQP41MYg="
@@ -10339,7 +10339,7 @@
 													"font": "Arial;13;0",
 													"left": 525,
 													"top": 285,
-													"width": 98.947265625,
+													"width": 90.28271484375,
 													"height": 13,
 													"text": "«server page»"
 												},
@@ -10352,7 +10352,7 @@
 													"font": "Arial;13;1",
 													"left": 525,
 													"top": 300,
-													"width": 98.947265625,
+													"width": 90.28271484375,
 													"height": 13,
 													"text": "LanguageModel"
 												},
@@ -10474,7 +10474,7 @@
 									"containerChangeable": true,
 									"left": 520,
 									"top": 280,
-									"width": 108.947265625,
+									"width": 100.28271484375,
 									"height": 38,
 									"autoResize": true,
 									"nameCompartment": {
@@ -10576,7 +10576,7 @@
 									"tail": {
 										"$ref": "AAAAAAF54doJ1fu00n0="
 									},
-									"points": "212:264;664:264",
+									"points": "200:264;664:264",
 									"showVisibility": true,
 									"nameLabel": {
 										"$ref": "AAAAAAF54eWP9P5K6FY="
@@ -10617,7 +10617,7 @@
 													"font": "Arial;13;0",
 													"left": 421,
 													"top": 237,
-													"width": 118.9296875,
+													"width": 108.80517578125,
 													"height": 13,
 													"text": "«server page»"
 												},
@@ -10630,7 +10630,7 @@
 													"font": "Arial;13;1",
 													"left": 421,
 													"top": 252,
-													"width": 118.9296875,
+													"width": 108.80517578125,
 													"height": 13,
 													"text": "AccountTypeModel"
 												},
@@ -10752,7 +10752,7 @@
 									"containerChangeable": true,
 									"left": 416,
 									"top": 232,
-									"width": 128.9296875,
+									"width": 118.80517578125,
 									"height": 38,
 									"autoResize": true,
 									"nameCompartment": {
@@ -10854,7 +10854,7 @@
 									"tail": {
 										"$ref": "AAAAAAF54dngMPtifos="
 									},
-									"points": "116:208;664:208",
+									"points": "106:208;664:208",
 									"showVisibility": true,
 									"nameLabel": {
 										"$ref": "AAAAAAF54eXDP/5eXo8="
@@ -10895,7 +10895,7 @@
 													"font": "Arial;13;0",
 													"left": 341,
 													"top": 189,
-													"width": 129.28271484375,
+													"width": 116.2763671875,
 													"height": 13,
 													"text": "«server page»"
 												},
@@ -10908,7 +10908,7 @@
 													"font": "Arial;13;1",
 													"left": 341,
 													"top": 204,
-													"width": 129.28271484375,
+													"width": 116.2763671875,
 													"height": 13,
 													"text": "AccountStatusModel"
 												},
@@ -11030,7 +11030,7 @@
 									"containerChangeable": true,
 									"left": 336,
 									"top": 184,
-									"width": 139.28271484375,
+									"width": 126.2763671875,
 									"height": 38,
 									"autoResize": true,
 									"nameCompartment": {
@@ -12993,7 +12993,86 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "C Sekvence"
+					"name": "C Sekvence",
+					"ownedElements": [
+						{
+							"_type": "UMLCollaboration",
+							"_id": "AAAAAAF54fzLushpIBE=",
+							"_parent": {
+								"$ref": "AAAAAAF54ae9mJgKVp8="
+							},
+							"name": "Collaboration1",
+							"ownedElements": [
+								{
+									"_type": "UMLInteraction",
+									"_id": "AAAAAAF54fzLushqUmQ=",
+									"_parent": {
+										"$ref": "AAAAAAF54fzLushpIBE="
+									},
+									"name": "Interaction1",
+									"ownedElements": [
+										{
+											"_type": "UMLSequenceDiagram",
+											"_id": "AAAAAAF54fzLushr+iQ=",
+											"_parent": {
+												"$ref": "AAAAAAF54fzLushqUmQ="
+											},
+											"name": "Test proba",
+											"ownedViews": [
+												{
+													"_type": "UMLFrameView",
+													"_id": "AAAAAAF54fzLushsFyM=",
+													"_parent": {
+														"$ref": "AAAAAAF54fzLushr+iQ="
+													},
+													"model": {
+														"$ref": "AAAAAAF54fzLushr+iQ="
+													},
+													"subViews": [
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF54fzLushtVVY=",
+															"_parent": {
+																"$ref": "AAAAAAF54fzLushsFyM="
+															},
+															"font": "Arial;13;0",
+															"left": 24.72998046875,
+															"top": 5,
+															"width": 61.70263671875,
+															"height": 13,
+															"text": "Test proba"
+														},
+														{
+															"_type": "LabelView",
+															"_id": "AAAAAAF54fzLushuO18=",
+															"_parent": {
+																"$ref": "AAAAAAF54fzLushsFyM="
+															},
+															"font": "Arial;13;1",
+															"left": 5,
+															"top": 5,
+															"width": 14.72998046875,
+															"height": 13,
+															"text": "sd"
+														}
+													],
+													"font": "Arial;13;0",
+													"width": 692,
+													"height": 592,
+													"nameLabel": {
+														"$ref": "AAAAAAF54fzLushtVVY="
+													},
+													"frameTypeLabel": {
+														"$ref": "AAAAAAF54fzLushuO18="
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			]
 		}
