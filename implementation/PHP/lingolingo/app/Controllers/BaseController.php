@@ -1,4 +1,7 @@
 <?php
+/**
+* Miloš Jovanović 2013/0669
+**/
 
 namespace App\Controllers;
 
@@ -90,12 +93,17 @@ class BaseController extends Controller
             $this->response->send();
         }
         
+        /**
+        * Šifrovanje password-a
+        */
         protected function encryptPassword($password)
         {
             $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
             return $encryptedPassword;
         }
-        
+        /**
+        * Dohvatanje trenutnog datuma i vremena
+        */
         public function GetCurrentDateAndTime()
         {
             return date("d-m-Y H:i:s");

@@ -1,14 +1,24 @@
 <?php namespace App\Models;
-
- 
+/**
+ * Miloš Jovanović 2013/0669
+ * Ksenija Bulatović 2019/0730
+**/ 
 
 use CodeIgniter\Model;
 
- 
-
-
+/**
+* UserModel – klasa za komunikaciju sa tabelom 'useraccounts' iz baze
+*
+* @version 1.0
+*/
 class UserModel extends Model
 {
+    /**
+    * GetAllPlayers funkcija koja dohvata sve igrače
+    *
+    * @return list
+    *
+    */
     public function GetAllPlayers() {
         $builder = $this->db->table('useraccounts');
         $builder->select('*');
@@ -18,7 +28,14 @@ class UserModel extends Model
         return $list;        
     }
     
-    
+    /**
+    * GetUser funkcija koja dohvata user-a na osnovu username-a
+    *
+     * @param $username
+     * 
+    * @return user
+    *
+    */
     public function GetUser($username)
     {
         if( !isset($username))
@@ -41,6 +58,14 @@ class UserModel extends Model
         }
     }
     
+    /**
+    * GetUserIdByUsername funkcija koja dohvata userId na osnovu username-a
+    *
+    * @param $username
+    * 
+    * @return id
+    *
+    */
     public function GetUserIdByUsername($username)
     {
         if( !isset($username))
@@ -63,6 +88,14 @@ class UserModel extends Model
         }
     }
     
+    /**
+    * CheckUsernameTaken funkcija koja proverava da li je zadati username zauzet ili ne
+    *
+    * @param $username
+    * 
+    * @return res
+    *
+    */
     public function CheckUsernameTaken($username)
     {
         $builder = $this->db->table('useraccounts');
@@ -80,6 +113,14 @@ class UserModel extends Model
         }
     }
     
+    /**
+    * CheckEmailTaken funkcija koja proverava da li je zadati email zauzet ili ne
+    *
+    * @param $email
+    * 
+    * @return res
+    *
+    */
     public function CheckEmailTaken($email)
     {
         $builder = $this->db->table('useraccounts');
@@ -97,6 +138,14 @@ class UserModel extends Model
         }
     }
     
+    /**
+    * GetUserByID funkcija koja dohvata user-a na osnovu $id-a
+    *
+    * @param $id
+    * 
+    * @return result
+    *
+    */
     public function GetUserByID($id)
     {
         if( !isset($id))
@@ -112,6 +161,12 @@ class UserModel extends Model
         return $result[0];
     }
     
+    /**
+    * RegisterNewUser funkcija koja kreira novog user-a
+    *
+    * @param $firstName, $lastName, $username, $password, $email, $accountTypeId, $accountStatusId
+    *
+    */
     public function RegisterNewUser($firstName, $lastName, $username, $password, $email, $accountTypeId, $accountStatusId)
     {
         $newUser = [
@@ -128,49 +183,14 @@ class UserModel extends Model
         $query->insert($newUser);
     }
     
-    public function dogadjaj($id)
-    {
-        
-        
-        
-        /*
-        $builder = $this->db->table('dogadjaj');
-        $builder->select('*')->join('lokacija', 'id_lokacije = id_lok')->where('id_dog', $id);
-        $result = $builder->get()->getResultObject();
-        if( empty($result) ) return null;
-        return $result[0];
-         *
-        */
-    }
-    
-    public function gradovi()
-    {
-        /*
-        $builder = $this->db->table('grad');
-        return $builder->select("*")->get()->getResultObject();
-         * 
-         */
-    }
-
- 
-
-    public function kategorije()
-    {
-        
-        
-        /*
-        $builder = $this->db->table('kategorija');
-        $kategorije = $builder->select("*")->get()->getResultObject();
-        
-        $svejedno = new \stdClass();
-        $svejedno->naziv = 'Sve kategorije';
-        array_unshift($kategorije, $svejedno);
-        
-        return $kategorije;
-         * 
-         */
-    }
-    
+    /**
+    * GetUserId funkcija koja vraca id user-a na osnovu username-a
+    *
+    * @param $username
+    * 
+    * @return IdUser
+    *
+    */
     public function GetUserId($username) {
         $builder = $this->db->table('useraccounts');
         $builder->select("*");
@@ -180,6 +200,14 @@ class UserModel extends Model
         return $result[0]->IdUser;
     }
     
+    /**
+    * GetUserFullName funkcija koja FirstName i LastName na osnovu username-a
+    *
+    * @param $username
+    * 
+    * @return Name
+    *
+    */
     public function GetUserFullName($username){
         $builder = $this->db->table('useraccounts');
         $builder->select('*');
@@ -189,6 +217,14 @@ class UserModel extends Model
         return $result[0]->FirstName . " " . $result[0]->LastName;
     }
     
+    /**
+    * GetUsersByAccountStatusIdAndAccountTypeId funkcija dohvata sve user-e na osnovu tipa naloga i statusa naloga
+    *
+    * @param $accountStatusId, $accountTypeId
+    * 
+    * @return $result
+    *
+    */
     public function GetUsersByAccountStatusIdAndAccountTypeId($accountStatusId, $accountTypeId)
     {
         $builder = $this->db->table('useraccounts');
@@ -200,6 +236,12 @@ class UserModel extends Model
         return $result;
     }
     
+    /**
+    * ChangeAccountStatus funkcija menja status userovom profilu po prosledjenim parametrima
+    *
+    * @param $userId, $accountStatusId
+    *
+    */
     public function ChangeAccountStatus($userId, $accountStatusId)
     {
         $builder = $this->db->table('useraccounts');
@@ -208,6 +250,12 @@ class UserModel extends Model
         $builder->update();
     }
     
+    /**
+    * DeleteAccount funkcija koja brise user-a iz baze koji ima zadati id
+    *
+    * @param $userId
+    *
+    */
     public function DeleteAccount($userId)
     {
         $builder = $this->db->table('useraccounts');

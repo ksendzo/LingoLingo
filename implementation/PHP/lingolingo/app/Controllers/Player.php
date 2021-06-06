@@ -1,4 +1,9 @@
 <?php
+/**
+ * Miloš Jovanović 2013/0669
+ * Ksenija Bulatović 2019/0730
+**/
+
 namespace App\Controllers;
 
 use App\Models\UserModel;
@@ -10,9 +15,16 @@ use App\Models\PlayedGamesModel;
 use App\Models\GameTypeModel;
 
  
-
+/**
+* Player – klasa za Player-ovu stranicu
+*
+* @version 1.0
+*/
 class Player extends BaseController
 {
+    /**
+    * dohvatanje svih jezika iz baze
+    */
     public function languages() 
     {
         $this->receiveAJAX();
@@ -22,25 +34,10 @@ class Player extends BaseController
 
         $this->sendAJAX(json_encode($languages));
     }
-    
-    public function newQuestion() {
-        $this->receiveAJAX();
-        $question = $this->request->getVar('question', FILTER_SANITIZE_STRING);
-        $answer = $this->request->getVar('answer', FILTER_SANITIZE_STRING);
-        $languageName = $this->request->getVar('language', FILTER_SANITIZE_STRING);
-        $username = $this->request->getVar('professor', FILTER_SANITIZE_STRING);
 
-        $languageModel = new LanguageModel();
-        $languageId = $languageModel->GetLanguageId($languageName);
-
-        $userModel = new UserModel();
-        $authorId = $userModel->GetUserId($username);
-
-        $model = new QuestionModel();
-        $model->NewQuestion($languageId, $authorId, $question, $answer);
-
-    }
-
+    /**
+    * Dohvatanje random pitanja
+    */
     public function question() {
         $this->receiveAJAX();
 
@@ -56,6 +53,9 @@ class Player extends BaseController
 
     }
 
+    /**
+    * Dohvatanje svih informacija o user-u na osnovu username-a
+    */
     public function userInfo(){
         $this->receiveAJAX();
 
@@ -95,31 +95,10 @@ class Player extends BaseController
         $this->sendAJAX($res);
 
     }
-        
-        
-    public function questions(){
-        $this->receiveAJAX();
-        
-        $model = new QuestionModel();
-        $questions = $model->GetAllQuestions();
-        
-        $languageModel = new LanguageModel();
-        
-        $data;
-        
-        for($i = 0; $i < count($questions); $i++){
-            $data[$i] =  array(
-                'language'  => $languageModel->GetLanguageName($questions[$i]->IdLanguage),
-                'question'  =>  $questions[$i]->QuestionText,
-                'answer'    =>  $questions[$i]->AnswerText,
-                'flag'      =>  $questions[$i]->IsFlagged
-            );
-        }
-        
-        $this->sendAJAX($data);
-        
-    }
     
+    /**
+    * Dohvatanje svih user-a za high score
+    */
     public function userList() {
         $this->receiveAJAX();
         
@@ -155,6 +134,9 @@ class Player extends BaseController
         $this->sendAJAX($result);
     }
     
+    /**
+    * Čuvanje rezultata nakon uspešno odigrane igre
+    */
     public function SaveScore()
     {
         $this->receiveAJAX();
@@ -187,6 +169,9 @@ class Player extends BaseController
         $modelPlayedGames->InsertNewPlayedGame($userId, $gameModeId, $languageId, $datePlayed, $pointsScored);
     }
     
+    /**
+    * Reportovanje pitanja
+    */
     public function report() {
         $this->receiveAJAX();
         $id = $this->request->getVar('idQ');

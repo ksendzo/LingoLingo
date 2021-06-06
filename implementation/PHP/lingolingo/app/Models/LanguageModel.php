@@ -1,10 +1,25 @@
 <?php 
+/**
+ * Miloš Jovanović 2013/0669
+ * Ksenija Bulatović 2019/0730
+**/
+
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+/**
+* LanguageModel – klasa za komunikaciju sa tabelom 'languages' iz baze
+*
+* @version 1.0
+*/
 class LanguageModel extends Model
 {
+    /**
+    * GetLanguageNames funkcija koja dohvata sve nazive jezika iz baze
+    * 
+    * @return result
+    *
+    */
     public function GetLanguageNames()
     {
         $builder = $this->db->table('languages');
@@ -16,6 +31,14 @@ class LanguageModel extends Model
         return $result;
     }
     
+    /**
+    * GetLanguageId funkcija koja dohvata id jezika na osnovu naziva jezika
+    *
+    * @param Request $name name
+    *
+    * @return IdLanguage
+    *
+    */
     public function GetLanguageId($name){
         $builder = $this->db->table('languages');
         $builder->select("*");
@@ -26,6 +49,14 @@ class LanguageModel extends Model
         
     }
     
+    /**
+    * GetGameModeIdByName funkcija koja dohvata naziv jezika na osnovu id-a jezika
+    *
+    * @param Request $gameModeName gameModeName
+    *
+    * @return IdGameType
+    *
+    */
     public function GetLanguageName($id) {
         $builder = $this->db->table('languages');
         $builder->select("*");

@@ -1,3 +1,8 @@
+/*  
+  Ksenija Bulatovic 2019/0730
+  Miloš Ćirković 2017/0333
+*/
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AdminPage from '../views/AdminPage.vue'

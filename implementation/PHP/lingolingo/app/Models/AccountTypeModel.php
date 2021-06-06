@@ -1,14 +1,28 @@
 <?php 
+/**
+ * Miloš Jovanović 2013/0669
+ * Ksenija Bulatović 2019/0730
+**/
+
 namespace App\Models;
-
-
 use CodeIgniter\Model;
 
- 
 
-
+/**
+* AccountTypeModel – klasa za komunikaciju sa tabelom 'usertypes' iz baze
+*
+* @version 1.0
+*/
 class AccountTypeModel extends Model
 {
+    /**
+    * GetTypeNameByID funkcija koja dohvata Type Name na osnovu id-a
+    *
+    * @param Request $id id
+    *
+    * @return UserTypeName
+    *
+    */
     public function GetTypeNameByID($id)
     {
         if( !isset($id))
@@ -24,6 +38,14 @@ class AccountTypeModel extends Model
         return $result[0]->UserTypeName;
     }
     
+    /**
+    * GetTypeIDByName funkcija koja dohvata id na osnovu Type Name-a
+    *
+    * @param Request $typeName typeName
+    *
+    * @return id
+    *
+    */
     public function GetTypeIDByName($typeName)
     {
         if( !isset($typeName))

@@ -1,3 +1,7 @@
+<!--  Ksenija Bulatovic 2019/0730
+      Miloš Ćirković 2017/0333
+      Miloš Jovanović 2013/0669 -->
+
 <template>
     <div class="" style="padding: 0; margin-top:20px">
         <div  v-for='language in languages' :key="language.LanguageName">
