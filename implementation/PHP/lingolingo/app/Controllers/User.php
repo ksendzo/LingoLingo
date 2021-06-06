@@ -1,4 +1,9 @@
 <?php
+/**
+ * Miloš Jovanović 2013/0669
+ * Ksenija Bulatović 2019/0730
+**/
+
 namespace App\Controllers;
 
 use App\Models\UserModel;
@@ -7,10 +12,17 @@ use App\Models\AccountTypeModel;
 use App\Models\LanguageModel;
 use App\Models\QuestionModel;
 
- 
+ /**
+* User – klasa register i login
+*
+* @version 1.0
+*/
 
 class User extends BaseController
 {
+    /**
+    * Logovanje na sajt
+    */
     public function login()
     {
             $this->receiveAJAX();
@@ -69,6 +81,9 @@ class User extends BaseController
             $this->sendAJAX(json_encode($loginResult));
         }
         
+    /**
+    * Registracija novog korisnika
+    */
     public function register()
     {
         $this->receiveAJAX();

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Miloš Jovanović 2013/0669
+ * Ksenija Bulatović 2019/0730
+**/
+
 namespace App\Controllers;
 
 use App\Models\UserModel;
@@ -8,9 +13,16 @@ use App\Models\LanguageModel;
 use App\Models\QuestionModel;
 
  
-
+/**
+* Professor – klasa za Professor-ovu stranicu
+*
+* @version 1.0
+*/
 class Professor extends BaseController
 {
+    /**
+    * Dohvatanje svih jezika iz baze
+    */
     public function languages() 
     {
         $this->receiveAJAX();
@@ -21,6 +33,9 @@ class Professor extends BaseController
         $this->sendAJAX(json_encode($languages));
     }
     
+    /**
+    * Dodavanje novog pitanja u bazu
+    */
     public function newQuestion() {
         $this->receiveAJAX();
         $question = $this->request->getVar('question', FILTER_SANITIZE_STRING);
@@ -39,6 +54,9 @@ class Professor extends BaseController
 
     }
     
+    /**
+    * Dohvatanje liste svih pitanja
+    */
     public function questions(){
         $this->receiveAJAX();
         
@@ -63,6 +81,9 @@ class Professor extends BaseController
         
     }
     
+    /**
+    * Izmena već postojećeg pitanja
+    */
     public function ModifyQuestion()
     {
         $this->receiveAJAX();
@@ -75,6 +96,9 @@ class Professor extends BaseController
         $questionModel->ModifyQuestion($modifiedQuestionId, $modifiedQuestion, $modifiedAnswer);
     }
     
+    /**
+    * Brisanje pitanja iz baze
+    */
     public function DeleteQuestion()
     {
         $this->receiveAJAX();
@@ -85,6 +109,9 @@ class Professor extends BaseController
         $questionModel->DeleteQuestion($idQuestionToBeDeleted);
     }
     
+    /**
+    * Izmena flag-a na pitanju
+    */
     public function ModifyFlag()
     {
         $this->receiveAJAX();
