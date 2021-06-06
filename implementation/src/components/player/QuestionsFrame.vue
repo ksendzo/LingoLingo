@@ -177,6 +177,12 @@ export default {
         this.answer = res.data.AnswerText;
         this.Qid = res.data.IdQuestion;
         this.currentQuestionBasic++;
+
+        if(Math.floor(Math.random() * 2) == 0){
+          let swap = this.answer;
+          this.answer = this.question;
+          this.question = swap;
+        }
       });
     }, 
     fullHeart(num) {
