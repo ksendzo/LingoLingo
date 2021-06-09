@@ -68,7 +68,7 @@
 
 .box h1 {
     color: white;
-    text-transform: uppercase;
+    /*text-transform: uppercase; */
     font-weight: 500
 }
 

@@ -101,7 +101,7 @@ export default {
 
 .box h2 {
     color: whitesmoke;
-    text-transform: uppercase;
+   /* text-transform: uppercase; */
     font-weight: 200;
     font-size: 25px;
 }
