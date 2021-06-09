@@ -42,14 +42,13 @@
 
 
 <script>
-// import users from '@/data/users.js'
 
 export default {
   name: "Leaderboard",
   data() {
       return {
         users: [], 
-        up: true
+        sortBy: ''
       }
   }, 
   methods: {
@@ -65,43 +64,39 @@ export default {
       });
     },
     sortByName() {
-      if(this.up){
+      if(this.sortBy != 'name'){
         this.users.sort((a, b) => (a.player > b.player) ? 1 : -1);
-        this.up = false;
+        this.sortBy = 'name';
       }
       else {
-        this.users.sort((a, b) => (a.player > b.player) ? -1 : 1);
-        this.up = true;
+        this.users.reverse();
       }
     },
     sortByScore() {
-      if(this.up){
-        this.users.sort((a, b) => (this.sum(a.basic_score, a.survival_score) > this.sum(b.basic_score, b.survival_score)) ? 1 : -1);
-        this.up = false;
+      if(this.sortBy != 'score' || this.sortBy == ''){
+        this.users.sort((a, b) => (this.sum(a.basic_score, a.survival_score) < this.sum(b.basic_score, b.survival_score)) ? 1 : -1);
+        this.sortBy = 'score';
       }
       else {
-        this.users.sort((a, b) => (this.sum(a.basic_score, a.survival_score) > this.sum(b.basic_score, b.survival_score)) ? -1 : 1);
-        this.up = true;
+        this.users.reverse();
       }
     },
     sortByBasic() {
-      if(this.up){
-        this.users.sort((a, b) => (parseInt(a.basic_score) > parseInt(b.basic_score)) ? 1 : -1);
-        this.up = false;
+      if(this.sortBy != 'basic'){
+        this.users.sort((a, b) => (parseInt(a.basic_score) < parseInt(b.basic_score)) ? 1 : -1);
+        this.sortBy = 'basic';
       }
       else {
-        this.users.sort((a, b) => (parseInt(a.basic_score) > parseInt(b.basic_score)) ? -1 : 1);
-        this.up = true;
+        this.users.reverse();
       }
     },
     sortBySurvival() {
-      if(this.up){
-        this.users.sort((a, b) => (parseInt(a.survival_score) > parseInt(b.survival_score)) ? 1 : -1);
-        this.up = false;
+      if(this.sortBy != 'survival'){
+        this.users.sort((a, b) => (parseInt(a.survival_score) < parseInt(b.survival_score)) ? 1 : -1);
+        this.sortBy = 'survival';
       }
       else {
-        this.users.sort((a, b) => (parseInt(a.survival_score) > parseInt(b.survival_score)) ? -1 : 1);
-        this.up = true;
+        this.users.reverse();
       }
     }
   },

@@ -6,7 +6,7 @@
     <div class="row">
         <div class=" col-md-12">
             <div class="card-login">
-                <form onsubmit="event.preventDefault()" @submit.prevent='newQuestion()' class="box newQuestion">
+                <form onsubmit="event.preventDefault()" @submit.prevent='newQuestion()' class="box newQuestion" >
                     <div class="row">
                         <div class="col-8 m-10">
                             <h1>New question</h1>
@@ -100,7 +100,7 @@ export default {
                     'professor': this.professor
                 }
 
-                this.$professor.put('/newQuestion', JSON.stringify(form))
+                this.$professor.post('/newQuestion', form)
                 .then( () => {
                     this.$router.replace('/professor');
 

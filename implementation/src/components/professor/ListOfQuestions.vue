@@ -40,11 +40,11 @@
               </td>
               <td v-else style="horizontal-align:middle; margin:0px;">
                 <div class="row">
-                  <div class="col-12 underline">
+                  <div class="col-12 underline" v-html="entry.question">
                 {{ entry.question }}
                   </div></div>
                   <div class="row">
-                  <div class="col-12">
+                  <div class="col-12" v-html="entry.answer">
                   {{ entry.answer }}
                   </div></div>
               </td>
