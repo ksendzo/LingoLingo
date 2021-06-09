@@ -38,10 +38,10 @@ class Professor extends BaseController
     */
     public function newQuestion() {
         $this->receiveAJAX();
-        $question = $this->request->getVar('question', FILTER_SANITIZE_STRING);
-        $answer = $this->request->getVar('answer', FILTER_SANITIZE_STRING);
-        $languageName = $this->request->getVar('language', FILTER_SANITIZE_STRING);
-        $username = $this->request->getVar('professor', FILTER_SANITIZE_STRING);
+        $question = htmlspecialchars($this->request->getVar('question'), ENT_COMPAT, "UTF-8");
+        $answer = htmlspecialchars($this->request->getVar('answer'), ENT_COMPAT, "UTF-8");
+        $languageName = htmlspecialchars($this->request->getVar('language'), ENT_COMPAT, "UTF-8");
+        $username = htmlspecialchars($this->request->getVar('professor'), ENT_COMPAT, "UTF-8");
 
         $languageModel = new LanguageModel();
         $languageId = $languageModel->GetLanguageId($languageName);
@@ -88,9 +88,9 @@ class Professor extends BaseController
     {
         $this->receiveAJAX();
         
-        $modifiedQuestion = $this->request->getVar('modifiedQuestion', FILTER_SANITIZE_STRING);
-        $modifiedAnswer = $this->request->getVar('modifiedAnswer', FILTER_SANITIZE_STRING);
-        $modifiedQuestionId = $this->request->getVar('modifiedQuestionId', FILTER_SANITIZE_STRING);
+        $modifiedQuestion = htmlspecialchars($this->request->getVar('modifiedQuestion'), ENT_COMPAT, "UTF-8");
+        $modifiedAnswer = htmlspecialchars($this->request->getVar('modifiedAnswer'));
+        $modifiedQuestionId = htmlspecialchars($this->request->getVar('modifiedQuestionId'), ENT_COMPAT, "UTF-8");
         
         $questionModel = new QuestionModel();
         $questionModel->ModifyQuestion($modifiedQuestionId, $modifiedQuestion, $modifiedAnswer);

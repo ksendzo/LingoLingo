@@ -26,8 +26,8 @@ class User extends BaseController
     public function login()
     {
             $this->receiveAJAX();
-            $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
-            $pass = $this->request->getVar('password', FILTER_SANITIZE_STRING);
+            $username = htmlspecialchars($this->request->getVar('username'), ENT_COMPAT, "UTF-8");
+            $pass = htmlspecialchars($this->request->getVar('password'), ENT_COMPAT, "UTF-8");
             
             $model = new UserModel();
             $user = $model->GetUser($username);
@@ -87,13 +87,13 @@ class User extends BaseController
     public function register()
     {
         $this->receiveAJAX();
-        $firstName = $this->request->getVar('FirstName', FILTER_SANITIZE_STRING);
-        $lastName = $this->request->getVar('LastName', FILTER_SANITIZE_STRING);
-        $username = $this->request->getVar('Username', FILTER_SANITIZE_STRING);
-        $email = $this->request->getVar('Email', FILTER_SANITIZE_STRING);
-        $password = $this->request->getVar('Password', FILTER_SANITIZE_STRING);
-        $confirmPassword = $this->request->getVar('ConfirmPassword', FILTER_SANITIZE_STRING);
-        $accountType = $this->request->getVar('AccountType', FILTER_SANITIZE_STRING);
+        $firstName = htmlspecialchars($this->request->getVar('FirstName'), ENT_COMPAT, "UTF-8");
+        $lastName = htmlspecialchars($this->request->getVar('LastName'), ENT_COMPAT, "UTF-8");
+        $username = htmlspecialchars($this->request->getVar('Username'), ENT_COMPAT, "UTF-8");
+        $email = htmlspecialchars($this->request->getVar('Email'), ENT_COMPAT, "UTF-8");
+        $password = htmlspecialchars($this->request->getVar('Password'), ENT_COMPAT, "UTF-8");
+        $confirmPassword = htmlspecialchars($this->request->getVar('ConfirmPassword'), ENT_COMPAT, "UTF-8");
+        $accountType = htmlspecialchars($this->request->getVar('AccountType'), ENT_COMPAT, "UTF-8");
 
         $registerResult = array(
             "RegisterSuccessful" => false,

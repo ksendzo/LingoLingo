@@ -41,7 +41,7 @@ class Player extends BaseController
     public function question() {
         $this->receiveAJAX();
 
-        $language = $this->request->getVar('language', FILTER_SANITIZE_STRING);
+        $language = htmlspecialchars($this->request->getVar('language'), ENT_COMPAT, "UTF-8");
 
         $languageModel = new LanguageModel();
         $languageId = $languageModel->GetLanguageId($language);
@@ -59,7 +59,7 @@ class Player extends BaseController
     public function userInfo(){
         $this->receiveAJAX();
 
-        $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
+        $username = htmlspecialchars($this->request->getVar('username'), ENT_COMPAT, "UTF-8");
 
         $userModel = new UserModel();
         $myName = $userModel->getUserFullName($username);
@@ -141,10 +141,10 @@ class Player extends BaseController
     {
         $this->receiveAJAX();
         
-        $mode = $this->request->getVar('gameMode');
-        $score = $this->request->getVar('numberOfCorrectAnswers');
-        $language = $this->request->getVar('language');
-        $username = $this->request->getVar('username');
+        $mode = htmlspecialchars($this->request->getVar('gameMode'), ENT_COMPAT, "UTF-8");
+        $score = htmlspecialchars($this->request->getVar('numberOfCorrectAnswers'), ENT_COMPAT, "UTF-8");
+        $language = htmlspecialchars($this->request->getVar('language'), ENT_COMPAT, "UTF-8");
+        $username = htmlspecialchars($this->request->getVar('username'), ENT_COMPAT, "UTF-8");
         
         $modelPlayedGames = new PlayedGamesModel();
         $modelLanguage = new LanguageModel();
