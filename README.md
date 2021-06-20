@@ -1,6 +1,8 @@
 # LingoLingo-by-Srcici
 
-Grupni projekat na predmetu Principi softverskog inženjerstva na Elektrotehničkom fakultetu u Beogradu.
+Grupni projekat na predmetu Principi softverskog inženjerstva na Elektrotehničkom fakultetu u Beogradu. 
+
+www.lingolingo.rs - online verzija applikacije (za sada komunikacija sa backend-om ne radi lepo na Chrome-u)
 
 # Korišćenje projekta
 U folderu ***documentation*** nalazi se sva neophodna dokumrntacija ovog projekta po fazama izvođenje.
@@ -13,7 +15,7 @@ Instalirati :
 * CodeIgniter 4
 * Get Composer
 
-Podesavanje baze:
+Podesavanje baze i CI-a:
 * root password na 'srcici'
 * udjes u mySql dir
 * mySql.exe -u root -p
@@ -25,4 +27,4 @@ Podesavanje baze:
 * cfg('Servers') 'port' = 3308
 * php.ini my.ini portove na 3308
 * udjemo u WAMP www folder composer create-project codeigniter4/appstarter lingolingo
-
+* importovati bazu iz implementation/Database/lingolingo.sql
